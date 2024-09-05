@@ -5,7 +5,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100 flex-1 justify-center navbar">
+    <div className="navbar bg-base-300 flex-1 justify-center navbar text-white">
       <div className="flex-none">
         <a className="btn btn-ghost text-xl">GymTalk</a>
       </div>
