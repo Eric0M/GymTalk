@@ -9,10 +9,13 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="flex flex-row">
-        <Pricing />
+      <div className="flex flex-row bg-base-100">
+        <Pricing
+          title="Basic"
+          price="$50"
+          features={["GymTok+ Access", "Live Q&A", "Personal Coaching"]}
+        />
       </div>
-      <Price />
     </>
   );
 }
