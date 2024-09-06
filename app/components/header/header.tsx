@@ -1,36 +1,94 @@
 "use client";
 
-import "@/app/components/header/header.css";
-import React from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
 
-const Header = () => {
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMenuOpen]);
+
   return (
-    <div className="navbar bg-base-300 flex-1 justify-center navbar text-white">
-      <div className="flex-none">
-        <a className="btn btn-ghost text-xl">GymTalk</a>
+    <header className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0">
+            <Link href="/" className="text-xl font-bold">
+              GymTalk
+            </Link>
+          </div>
+          <nav className="hidden md:flex space-x-4">
+            <Link href="/about" className="hover:text-gray-300">
+              About
+            </Link>
+            <Link href="/contact" className="hover:text-gray-300">
+              Contact
+            </Link>
+            <Link href="/our-story" className="hover:text-gray-300">
+              Our Story
+            </Link>
+          </nav>
+          <div className="hidden md:block">
+            <Link href="/login" className="hover:text-gray-300">
+              Login
+            </Link>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+        </div>
       </div>
-      <div className="flex-1 flex justify-center">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>About</a>
-          </li>
-          <li>
-            <a>Contact</a>
-          </li>
-          <li>
-            <a>Our Story</a>
-          </li>
-        </ul>
-      </div>
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
 
-export default Header;
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <Link
+              href="/about"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/our-story"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
+            >
+              Our Story
+            </Link>
+            <Link
+              href="/login"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
+            >
+              Login
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
