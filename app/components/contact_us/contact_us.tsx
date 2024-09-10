@@ -20,8 +20,8 @@ export default function Contact() {
             Contact Us
           </CardTitle>
           <CardDescription className="text-gray-400">
-            We'd love to hear from you. Choose the appropriate method to get in
-            touch.
+            We would love to hear from you. Choose the appropriate method to get
+            in touch.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
