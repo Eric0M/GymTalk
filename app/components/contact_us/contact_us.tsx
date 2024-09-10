@@ -21,6 +21,7 @@ export default function Contact() {
           </CardTitle>
           <CardDescription className="text-gray-400">
             We would love to hear from you.
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
