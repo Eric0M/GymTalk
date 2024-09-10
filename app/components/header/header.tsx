@@ -28,24 +28,21 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-4 text-gray-500">
-            <Link href="/programs" className="hover:text-white hover:underline">
+            <Link href="/programs" className="hover:text-white ">
               Programs
             </Link>
-            <Link href="/about" className="hover:text-white hover:underline">
+            <Link href="/about" className="hover:text-white">
               About Us
             </Link>
-            <Link href="/contact" className="hover:text-white hover:underline">
+            <Link href="/contact" className="hover:text-white ">
               Contact
             </Link>
-            <Link href="/gymtalk+" className="hover:text-white hover:underline">
+            <Link href="/gymtalk+" className="hover:text-white">
               Gymtalk+
             </Link>
           </nav>
           <div className="hidden md:block">
-            <Link
-              href="/login"
-              className="text-gray-500 hover:text-white hover:underline"
-            >
+            <Link href="/login" className="text-gray-500 hover:text-white ">
               Login
             </Link>
           </div>
