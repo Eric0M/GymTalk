@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Orbitron } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
 // If loading a variable font, you don't need to specify the font weight
-const inter = Orbitron({
+const inter = Open_Sans({
   subsets: ["latin"],
   display: "swap",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/icon.PNG" />
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

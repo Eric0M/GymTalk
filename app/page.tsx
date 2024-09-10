@@ -5,6 +5,7 @@ import Product_Card from "./components/product_card/product_card";
 import Pricing from "./components/pricing/pricing";
 import Why_us from "./components/why_us/why_us";
 import Hero from "./components/test_hero/test_hero";
+import ProgramOptions from "./components/programs/programs";
 
 export default function Home() {
   return (

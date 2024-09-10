@@ -28,14 +28,17 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-4">
+            <Link href="/programs" className="hover:text-gray-300">
+              Programs
+            </Link>
             <Link href="/about" className="hover:text-gray-300">
-              About
+              About Us
             </Link>
             <Link href="/contact" className="hover:text-gray-300">
               Contact
             </Link>
-            <Link href="/our-story" className="hover:text-gray-300">
-              Our Story
+            <Link href="/gymtalk+" className="hover:text-gray-300">
+              Gymtalk+
             </Link>
           </nav>
           <div className="hidden md:block">
@@ -66,7 +69,7 @@ export default function Header() {
               href="/about"
               className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
             >
-              About
+              About Us
             </Link>
             <Link
               href="/contact"
@@ -75,10 +78,16 @@ export default function Header() {
               Contact
             </Link>
             <Link
-              href="/our-story"
+              href="/programs"
               className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
             >
-              Our Story
+              Programs
+            </Link>
+            <Link
+              href="/gymtalk+"
+              className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
+            >
+              Gymtalk+
             </Link>
             <Link
               href="/login"

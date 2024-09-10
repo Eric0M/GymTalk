@@ -8,22 +8,25 @@ export default function Hero() {
       <Image
         src={homeImage}
         alt="Gym background"
-        layout="fill"
-        objectFit="cover"
-        className="absolute inset-0 z-0"
+        fill
+        className="absolute inset-0 z-0 hero-overlay bg-opacity-60"
+        style={{ objectFit: "cover" }}
+        sizes="100vw"
+        priority
       />
-      <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
-      <div className="relative z-20 h-full flex flex-col items-center justify-end pb-24">
-        <div className="text-center space-y-4 mb-8">
-          <h1 className="text-5xl font-bold text-white">GymTalk</h1>
-          <p className="text-xl text-white max-w-md mx-auto">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
+        <div className="text-center space-y-6 max-w-2xl px-4">
+          <h1 className="text-6xl font-bold text-white drop-shadow-lg">
+            GymTalk
+          </h1>
+          <p className="text-2xl text-white drop-shadow-md">
             Connect with fitness enthusiasts, share your progress, and achieve
             your goals together.
           </p>
+          <Button className="hover:bg-gray-200 hover:text-black text-black bg-white font-semibold py-3 px-8 rounded-full text-xl mt-4">
+            Get started
+          </Button>
         </div>
-        <Button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full text-lg">
-          Get started
-        </Button>
       </div>
     </div>
   );
