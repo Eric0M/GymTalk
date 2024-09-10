@@ -19,7 +19,7 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="bg-gray-900 text-white">
+    <header className="bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
@@ -27,22 +27,25 @@ export default function Header() {
               GymTalk
             </Link>
           </div>
-          <nav className="hidden md:flex space-x-4">
-            <Link href="/programs" className="hover:text-gray-300">
+          <nav className="hidden md:flex space-x-4 text-gray-500">
+            <Link href="/programs" className="hover:text-white hover:underline">
               Programs
             </Link>
-            <Link href="/about" className="hover:text-gray-300">
+            <Link href="/about" className="hover:text-white hover:underline">
               About Us
             </Link>
-            <Link href="/contact" className="hover:text-gray-300">
+            <Link href="/contact" className="hover:text-white hover:underline">
               Contact
             </Link>
-            <Link href="/gymtalk+" className="hover:text-gray-300">
+            <Link href="/gymtalk+" className="hover:text-white hover:underline">
               Gymtalk+
             </Link>
           </nav>
           <div className="hidden md:block">
-            <Link href="/login" className="hover:text-gray-300">
+            <Link
+              href="/login"
+              className="text-gray-500 hover:text-white hover:underline"
+            >
               Login
             </Link>
           </div>

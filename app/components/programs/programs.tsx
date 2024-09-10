@@ -31,7 +31,7 @@ export default function ProgramOptions() {
   ];
 
   return (
-    <div className="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center p-4 sm:p-8">
+    <div className="bg-black text-gray-100 min-h-screen flex items-center justify-center p-4 sm:p-8">
       <div className="container mx-auto max-w-6xl">
         <h1 className="text-3xl font-bold mb-8 text-center">
           Our Program Options

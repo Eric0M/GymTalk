@@ -18,7 +18,7 @@ import {
 
 export default function Component() {
   return (
-    <div className="py-12 md:py-24 lg:py-32 bg-gray-900 flex flex-col items-center justify-center p-4 space-y-8">
+    <div className="py-12 md:py-24 lg:py-32 bg-black flex flex-col items-center justify-center p-4 space-y-8">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
         Improve your skills faster
       </h1>

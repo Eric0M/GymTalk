@@ -13,7 +13,7 @@ import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen w-full bg-gray-900 flex items-center justify-center p-4">
+    <div className="min-h-screen w-full bg-black flex items-center justify-center p-4">
       <Card className="w-full max-w-md mx-auto bg-gray-800 text-gray-100">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-gray-100">

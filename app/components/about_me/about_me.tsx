@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <section className="bg-gray-900 py-16 min-h-screen flex items-center">
+    <section className="bg-black py-16 min-h-screen flex items-center">
       <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 max-w-5xl">
         <h2 className="text-3xl font-bold text-white text-center mb-12">
           About Us
