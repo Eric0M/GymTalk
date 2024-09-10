@@ -20,9 +20,7 @@ export default function Contact() {
             Contact Us
           </CardTitle>
           <CardDescription className="text-gray-400">
-            We would love to hear from you. Choose the appropriate method to get
-            in touch.
-          </CardDescription>
+            We would love to hear from you.
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
