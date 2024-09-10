@@ -1,8 +1,11 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import homeImage from "@/public/heroIMG.jpeg";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
@@ -23,7 +26,10 @@ export default function Hero() {
             Connect with fitness enthusiasts, share your progress, and achieve
             your goals together.
           </p>
-          <Button className="hover:bg-gray-200 hover:text-black text-black bg-white font-semibold py-3 px-8 rounded-full text-xl mt-4">
+          <Button
+            className="hover:bg-gray-200 hover:text-black text-black bg-white font-semibold py-3 px-8 rounded-full text-xl mt-4"
+            onClick={() => router.push("/gymtalk+")}
+          >
             Get started
           </Button>
         </div>

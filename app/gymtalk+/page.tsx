@@ -5,7 +5,6 @@ import PricingComponent from "../components/pricing/pricing";
 const page = () => {
   return (
     <>
-      <Header />
       <PricingComponent />
     </>
   );

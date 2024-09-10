@@ -5,7 +5,6 @@ import Header from "../components/header/header";
 const About = () => {
   return (
     <>
-      <Header />
       <Contact />
     </>
   );

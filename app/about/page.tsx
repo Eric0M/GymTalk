@@ -5,7 +5,6 @@ import AboutUs from "../components/about_me/about_me";
 const Page = () => {
   return (
     <>
-      <Header />
       <AboutUs />
     </>
   );

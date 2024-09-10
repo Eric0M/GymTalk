@@ -2,7 +2,7 @@ import { ShieldCheck, Zap, HeartHandshake } from "lucide-react";
 
 export default function Why_us() {
   return (
-    <section className="w-full min-h-3/6 bg-gray-900 text-white flex items-center justify-center py-12 md:py-24 lg:py-32">
+    <section className="w-full bg-gray-900 text-white flex items-center justify-center py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
