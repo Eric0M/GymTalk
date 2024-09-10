@@ -26,7 +26,6 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/icon.PNG" />
       <body className={inter.className}>
-        {" "}
         <Header />
         {children}
         <Footer />
