@@ -37,7 +37,7 @@ export default function Hero() {
             just as much as you do.
           </p>
           <Button
-            className="hover:bg-indigo-600 text-white bg-indigo-400 font-semibold py-3 px-8 rounded-full text-xl mt-4"
+            className="hover:bg-indigo-400 text-white bg-indigo-600 font-semibold py-3 px-8 rounded-full text-xl mt-4"
             onClick={() => router.push("/gymtalk+")}
           >
             Get started
