@@ -16,7 +16,7 @@ export default function Why_us() {
           </p>*/}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
-          <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-purple-600 to-indigo-400">
+          <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-indigo-900 to-indigo-400">
             <div className="bg-white/10 p-3 rounded-full border-4 border-white">
               <UsersIcon className="w-6 h-6 text-white" />
             </div>
@@ -26,7 +26,7 @@ export default function Why_us() {
               protected.
             </p>
           </div>
-          <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-purple-600 to-indigo-400">
+          <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-indigo-900 to-indigo-400">
             <div className="bg-white/10 p-3 rounded-full border-4 border-white">
               <UsersIcon className="w-6 h-6 text-white" />
             </div>
@@ -36,7 +36,7 @@ export default function Why_us() {
               protected.
             </p>
           </div>
-          <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-purple-600 to-indigo-400">
+          <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-indigo-900 to-indigo-400">
             <div className="bg-white/10 p-3 rounded-full border-4 border-white">
               <Zap className="w-6 h-6 text-white" />
             </div>
@@ -46,7 +46,7 @@ export default function Why_us() {
               efficient algorithms.
             </p>
           </div>
-          <div className="flex flex-col items-center space-y-4 text-center border-4 bg-gradient-to-br from-purple-600 to-indigo-400 rounded-3xl py-12">
+          <div className="flex flex-col items-center space-y-4 text-center border-4 bg-gradient-to-br from-indigo-900 to-indigo-400 rounded-3xl py-12">
             <div className="bg-white/10 p-3 rounded-full border-4 border-white">
               <HeartHandshake className="w-6 h-6 text-white" />
             </div>
@@ -59,10 +59,10 @@ export default function Why_us() {
         </div>
         <div className="flex justify-center">
           <Button
-            className="lg:w-64 mt-12 rounded-full bg-indigo-400 hover:bg-purple-600 text-white font-bold"
+            className="w-auto px-8 py-3 mt-12 rounded-full bg-indigo-400 hover:bg-indigo-600 text-white font-bold"
             onClick={() => (window.location.href = "/gymtalk+")}
           >
-            Get Started
+            Start Improving Today
           </Button>
         </div>
       </div>

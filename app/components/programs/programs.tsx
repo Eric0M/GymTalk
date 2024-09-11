@@ -1,89 +1,67 @@
-"use client";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function ProgramOptions() {
   const programs = [
     {
-      title: "Web Development",
+      image: "/planche.jpg",
+      title: "Program 1",
       description:
-        "Learn to build modern web applications using the latest technologies.",
-      image: "/placeholder.svg?height=200&width=300",
+        "Description of Program 1. This program offers exciting features and benefits.",
+      buttonText: "Get Started",
     },
     {
-      title: "Data Science",
+      image: "/Handstand.jpg",
+      title: "Program 2",
       description:
-        "Dive into the world of data analysis, machine learning, and AI.",
-      image: "/placeholder.svg?height=200&width=300",
+        "Description of Program 2. Discover the unique aspects of this program.",
+      buttonText: "Get Started",
     },
     {
-      title: "Mobile App Development",
+      image: "/Front_Lever.png",
+      title: "Program 3",
       description:
-        "Create cutting-edge mobile applications for iOS and Android platforms.",
-      image: "/placeholder.svg?height=200&width=300",
+        "Description of Program 3. Find out how this program can help you achieve your goals.",
+      buttonText: "Get Started",
     },
   ];
 
   return (
-    <div className="bg-black text-gray-100 min-h-screen flex items-center justify-center p-4 sm:p-8">
-      <div className="container mx-auto max-w-6xl">
-        <h1 className="text-3xl font-bold mb-8 text-center">
-          Our Program Options
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 justify-items-center">
+    <section className="bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-8">Our Programs</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((program, index) => (
-            <Card
-              key={index}
-              className="bg-gray-800 border-gray-700 w-full max-w-sm flex flex-col"
-            >
-              <CardHeader>
+            <div key={index} className="flex flex-col items-center">
+              <div className="w-full aspect-[2/2] relative mb-4">
                 <Image
                   src={program.image}
                   alt={program.title}
-                  width={300}
-                  height={200}
-                  className="rounded-t-lg w-full"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
                 />
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <CardTitle className="text-xl mb-2 text-center text-white">
-                  {program.title}
-                </CardTitle>
-                <p className="text-gray-400 text-center">
-                  {program.description}
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button
-                  variant="outline"
-                  className="w-full rounded-full bg-indigo-400 text-white hover:bg-purple-600 border-indigo-400 hover:border-purple-800"
-                >
-                  Learn More
-                </Button>
-              </CardFooter>
-            </Card>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{program.title}</h3>
+              <p className="text-center mb-4">{program.description}</p>
+              <Button
+                variant="secondary"
+                className=" w-auto bg-indigo-400 text-white hover:bg-indigo-600 rounded-full"
+              >
+                {program.buttonText}
+              </Button>
+            </div>
           ))}
         </div>
-        <div className="text-center">
+        <div className="mt-12 text-center">
           <Button
             variant="outline"
-            size="lg"
-            className="px-12 py-6 rounded-full bg-indigo-400 text-white hover:bg-purple-600 border-purple-800 "
-            onClick={() => {
-              window.location.href = "/programs";
-            }}
+            className="w-auto bg-indigo-400 text-white hover:bg-indigo-600 border-none rounded-full"
           >
             See All Programs
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
