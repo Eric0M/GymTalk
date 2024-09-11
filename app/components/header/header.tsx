@@ -23,7 +23,7 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold">
+            <Link href="/" className="text-2xl font-bold text-indigo-400">
               GymTalk
             </Link>
           </div>
@@ -31,12 +31,15 @@ export default function Header() {
             <Link href="/programs" className="hover:text-white ">
               Programs
             </Link>
+            <p>|</p>
             <Link href="/about" className="hover:text-white">
               About Us
             </Link>
+            <p>|</p>
             <Link href="/contact" className="hover:text-white ">
               Contact
             </Link>
+            <p>|</p>
             <Link href="/gymtalk+" className="hover:text-white">
               Gymtalk+
             </Link>

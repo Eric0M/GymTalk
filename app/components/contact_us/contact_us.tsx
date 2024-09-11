@@ -30,7 +30,7 @@ export default function Contact() {
             </h3>
             <a
               href="mailto:business@ericmacrae.com"
-              className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors"
             >
               <EnvelopeIcon className="w-5 h-5 mr-2" />
               business@ericmacrae.com
@@ -85,7 +85,7 @@ export default function Contact() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+          <Button className="w-full bg-indigo-600 hover:bg-indigo-800 text-white">
             Submit
           </Button>
         </CardFooter>

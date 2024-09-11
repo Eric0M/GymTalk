@@ -61,13 +61,13 @@ export default function PricingComponent() {
                 <ul className="mt-6 space-y-4">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start">
-                      <Check className="flex-shrink-0 w-5 h-5 text-green-500" />
+                      <Check className="flex-shrink-0 w-5 h-5 text-indigo-400" />
                       <span className="ml-3">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <Button className="mt-8 w-full bg-green-500 hover:bg-green-600 text-white">
+              <Button className="mt-8 w-full bg-indigo-600 hover:bg-indigo-800 text-white">
                 {index === 2 ? "Contact Sales" : "Get Started"}
               </Button>
             </div>

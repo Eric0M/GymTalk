@@ -13,7 +13,9 @@ export default function Hero() {
         alt="Gym background"
         fill
         className="absolute inset-0 z-0 hero-overlay bg-opacity-60"
-        style={{ objectFit: "cover" }}
+        style={{
+          objectFit: "cover",
+        }}
         sizes="100vw"
         priority
       />

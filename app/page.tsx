@@ -13,7 +13,6 @@ export default function Home() {
     <>
       <Hero />
       <Why_us />
-      <Disc_standard_and_premium />
       <ProgramOptions />
     </>
   );

@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -62,7 +63,7 @@ export default function ProgramOptions() {
               <CardFooter>
                 <Button
                   variant="outline"
-                  className="w-full hover:bg-gray-200 hover:text-black"
+                  className="w-full rounded-full bg-indigo-400 text-white hover:bg-purple-600 border-indigo-400 hover:border-purple-800"
                 >
                   Learn More
                 </Button>
@@ -74,9 +75,12 @@ export default function ProgramOptions() {
           <Button
             variant="outline"
             size="lg"
-            className="px-8 bg-white text-black hover:bg-gray-200 hover:text-black"
+            className="px-12 py-6 rounded-full bg-indigo-400 text-white hover:bg-purple-600 border-purple-800 "
+            onClick={() => {
+              window.location.href = "/programs";
+            }}
           >
-            Learn Moreeee
+            See All Programs
           </Button>
         </div>
       </div>

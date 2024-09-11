@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "../components/header/header";
-import PricingComponent from "../components/pricing/pricing";
+import Disc_standard_and_premium from "../components/disc_standard_and_premium/discord_standard_and_premium";
 
 const page = () => {
   return (
     <>
-      <PricingComponent />
+      <Disc_standard_and_premium />
     </>
   );
 };
