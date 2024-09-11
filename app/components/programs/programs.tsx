@@ -46,7 +46,7 @@ export default function ProgramOptions() {
               <p className="text-center mb-4">{program.description}</p>
               <Button
                 variant="secondary"
-                className=" w-auto bg-indigo-400 text-white hover:bg-indigo-600 rounded-full"
+                className=" w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
               >
                 {program.buttonText}
               </Button>
@@ -56,7 +56,7 @@ export default function ProgramOptions() {
         <div className="mt-12 text-center">
           <Button
             variant="outline"
-            className="w-auto bg-indigo-400 text-white hover:bg-indigo-600 border-none rounded-full"
+            className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 border-none rounded-full"
           >
             See All Programs
           </Button>
