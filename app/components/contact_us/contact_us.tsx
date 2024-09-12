@@ -85,7 +85,7 @@ export default function Contact() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button className="w-full bg-indigo-600 hover:bg-indigo-800 text-white">
+          <Button className="w-full bg-indigo-600 hover:bg-indigo-400 text-white">
             Submit
           </Button>
         </CardFooter>

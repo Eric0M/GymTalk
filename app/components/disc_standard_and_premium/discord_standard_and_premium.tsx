@@ -112,7 +112,7 @@ export default function Component() {
             <Button
               className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold"
               onClick={() => {
-                window.open("/gymtalk+");
+                window.location.href = "/gymtalk+/about";
               }}
             >
               Upgrade to Premium

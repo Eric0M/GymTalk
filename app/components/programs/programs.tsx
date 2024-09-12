@@ -5,23 +5,23 @@ export default function ProgramOptions() {
   const programs = [
     {
       image: "/planche.jpg",
-      title: "Program 1",
+      title: "Intermediate to Advanced Calisthenics",
       description:
-        "Description of Program 1. This program offers exciting features and benefits.",
+        "For athletes who have a strong foundation and looking to take their progress to the next level.",
       buttonText: "Get Started",
     },
     {
       image: "/Handstand.jpg",
-      title: "Program 2",
+      title: "Handstand Mastery",
       description:
-        "Description of Program 2. Discover the unique aspects of this program.",
+        "For people both just starting out or advanced athletes looking to improve their technique.",
       buttonText: "Get Started",
     },
     {
       image: "/Front_Lever.png",
-      title: "Program 3",
+      title: "All you need to know about Calisthenics",
       description:
-        "Description of Program 3. Find out how this program can help you achieve your goals.",
+        "This is the perfect all inclusive program for anyone wanting to improve at calisthenics.",
       buttonText: "Get Started",
     },
   ];
@@ -42,8 +42,10 @@ export default function ProgramOptions() {
                   className="rounded-lg"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{program.title}</h3>
-              <p className="text-center mb-4">{program.description}</p>
+              <h3 className="text-xl font-bold mb-2">{program.title}</h3>
+              <p className="text-center mb-4 text-gray-400">
+                {program.description}
+              </p>
               <Button
                 variant="secondary"
                 className=" w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"

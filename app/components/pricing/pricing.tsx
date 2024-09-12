@@ -6,29 +6,21 @@ export default function PricingComponent() {
     {
       name: "Basic",
       price: "$9.99",
-      features: ["1 user", "10 projects", "5GB storage", "Basic support"],
+      features: ["Access to Premium Server", "Form Checker"],
     },
     {
       name: "Pro",
       price: "$19.99",
-      features: [
-        "5 users",
-        "50 projects",
-        "50GB storage",
-        "Priority support",
-        "Advanced analytics",
-      ],
+      features: ["All Basic features", "Weekly group discussions with Eric"],
     },
     {
       name: "Enterprise",
       price: "$49.99",
       features: [
-        "Unlimited users",
-        "Unlimited projects",
-        "1TB storage",
-        "24/7 support",
-        "Custom integrations",
-        "Dedicated account manager",
+        "All Pro features",
+        "1 on 1 coaching sessions and discussions",
+        "Unlimited Support and feedback from Eric",
+        "Free program choice after purchase",
       ],
     },
   ];
@@ -67,7 +59,7 @@ export default function PricingComponent() {
                   ))}
                 </ul>
               </div>
-              <Button className="mt-8 w-full bg-indigo-600 hover:bg-indigo-800 text-white">
+              <Button className="mt-8 w-full bg-indigo-600 hover:bg-indigo-400 text-white">
                 {index === 2 ? "Contact Sales" : "Get Started"}
               </Button>
             </div>
