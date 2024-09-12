@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function ProgramOptions() {
   const programs = [
     {
-      image: "/planch.jpg",
+      image: "/Planche.jpg",
       title: "Intermediate to Advanced Calisthenics",
       description:
         "For athletes who have a strong foundation and looking to take their progress to the next level.",
