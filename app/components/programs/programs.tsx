@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -59,6 +60,9 @@ export default function ProgramOptions() {
           <Button
             variant="outline"
             className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 border-none rounded-full"
+            onClick={() => {
+              window.location.href = "/programs";
+            }}
           >
             See All Programs
           </Button>

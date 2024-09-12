@@ -62,7 +62,7 @@ export default function Why_us() {
         <div className="flex justify-center">
           <Button
             className="w-auto px-8 py-3 mt-12 rounded-full bg-indigo-600 hover:bg-indigo-400 text-white font-bold"
-            onClick={() => (window.location.href = "/gymtalk+")}
+            onClick={() => (window.location.href = "/membership")}
           >
             Start Improving Today
           </Button>

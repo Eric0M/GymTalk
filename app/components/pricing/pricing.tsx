@@ -14,7 +14,7 @@ export default function PricingComponent() {
       features: ["All Basic features", "Weekly group discussions with Eric"],
     },
     {
-      name: "Enterprise",
+      name: "Elite",
       price: "$49.99",
       features: [
         "All Pro features",

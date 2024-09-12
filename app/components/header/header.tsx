@@ -40,8 +40,8 @@ export default function Header() {
               Contact
             </Link>
             <p>|</p>
-            <Link href="/gymtalk+" className="hover:text-white">
-              Gymtalk+
+            <Link href="/membership" className="hover:text-white">
+              Membership
             </Link>
           </nav>
           <div className="hidden md:block">
@@ -87,10 +87,10 @@ export default function Header() {
               Programs
             </Link>
             <Link
-              href="/gymtalk+"
+              href="/membership"
               className="block px-3 py-2 rounded-md text-base font-medium hover:text-white hover:bg-gray-700"
             >
-              Gymtalk+
+              Membership
             </Link>
             <Link
               href="/login"
