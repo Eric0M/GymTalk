@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function ProgramOptions() {
   const programs = [
     {
-      image: "/Planche.jpg",
+      image: "/Handstand.jpg",
       title: "Intermediate to Advanced Calisthenics",
       description:
         "For athletes who have a strong foundation and looking to take their progress to the next level.",
@@ -19,7 +19,7 @@ export default function ProgramOptions() {
       buttonText: "Get Started",
     },
     {
-      image: "/Front_Lever.PNG",
+      image: "/Handstand.jpg",
       title: "All you need to know about Calisthenics",
       description:
         "This is the perfect all inclusive program for anyone wanting to improve at calisthenics.",
