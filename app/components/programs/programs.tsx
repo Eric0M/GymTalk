@@ -1,25 +1,28 @@
 "use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import planche from "../../../public/planche.jpg";
+import handstand from "../../../public/Handstand.jpg";
+import front_lever from "../../../public/Front_Lever.png";
 
 export default function ProgramOptions() {
   const programs = [
     {
-      image: "/planche.jpg",
+      image: planche,
       title: "Intermediate to Advanced Calisthenics",
       description:
         "For athletes who have a strong foundation and looking to take their progress to the next level.",
       buttonText: "Get Started",
     },
     {
-      image: "/Handstand.jpg",
+      image: handstand,
       title: "Handstand Mastery",
       description:
         "For people both just starting out or advanced athletes looking to improve their technique.",
       buttonText: "Get Started",
     },
     {
-      image: "/Front_Lever.png",
+      image: front_lever,
       title: "All you need to know about Calisthenics",
       description:
         "This is the perfect all inclusive program for anyone wanting to improve at calisthenics.",
