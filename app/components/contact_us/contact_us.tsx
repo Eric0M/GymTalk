@@ -14,7 +14,7 @@ import { EnvelopeIcon } from "@heroicons/react/24/outline";
 export default function Contact() {
   return (
     <div className="min-h-screen w-full bg-black flex items-center justify-center p-4">
-      <Card className="w-full max-w-md mx-auto bg-gray-800 text-gray-100">
+      <Card className="w-full max-w-md mx-auto bg-zinc-900 text-gray-100">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-gray-100">
             Contact Us
@@ -30,7 +30,7 @@ export default function Contact() {
             </h3>
             <a
               href="mailto:business@ericmacrae.com"
-              className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors"
+              className="inline-flex items-center text-indigo-400 hover:text-indigo-200 transition-colors"
             >
               <EnvelopeIcon className="w-5 h-5 mr-2" />
               business@ericmacrae.com
@@ -51,7 +51,7 @@ export default function Contact() {
                 <Input
                   id="name"
                   placeholder="Enter your name"
-                  className="bg-gray-700 text-gray-100 border-gray-600 focus:border-gray-500"
+                  className="bg-zinc-800 text-gray-100 border-zinc-700 focus:border-gray-500"
                 />
               </div>
               <div className="space-y-2">
@@ -65,7 +65,7 @@ export default function Contact() {
                   id="email"
                   placeholder="Enter your email"
                   type="email"
-                  className="bg-gray-700 text-gray-100 border-gray-600 focus:border-gray-500"
+                  className="bg-zinc-800 text-gray-100 border-zinc-700 focus:border-gray-500"
                 />
               </div>
               <div className="space-y-2">
@@ -78,7 +78,7 @@ export default function Contact() {
                 <Textarea
                   id="message"
                   placeholder="Enter your message"
-                  className="min-h-[100px] bg-gray-700 text-gray-100 border-gray-600 focus:border-gray-500"
+                  className="min-h-[100px] bg-zinc-800 text-gray-100 border-zinc-700 focus:border-gray-500"
                 />
               </div>
             </form>
