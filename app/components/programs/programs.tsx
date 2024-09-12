@@ -19,7 +19,7 @@ export default function ProgramOptions() {
       buttonText: "Get Started",
     },
     {
-      image: "/Handstand.jpg",
+      image: "/Front_Lever.PNG",
       title: "All you need to know about Calisthenics",
       description:
         "This is the perfect all inclusive program for anyone wanting to improve at calisthenics.",
