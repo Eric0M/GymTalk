@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="flex flex-col justify-center items-center md:items-start md:col-span-2">
             <h2 className="text-2xl font-bold text-white mb-4 text-center md:text-left">
-              Gymtalk
+              GymTalk
             </h2>
             <p className="text-sm text-center md:text-left flex-grow">
               Here at GymTalk, we are committed to bringing out the best in all
@@ -52,10 +52,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/gymtalk+"
+                  href="/membership"
                   className="hover:text-white transition-colors"
                 >
-                  Gymtalk+
+                  Membership
                 </Link>
               </li>
             </ul>
