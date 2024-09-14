@@ -3,6 +3,8 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import AuthProvider from "@/components/AuthProvider";
+import { Session } from "next-auth";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Poppins({
@@ -19,15 +21,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  session,
 }: Readonly<{
   children: React.ReactNode;
+  session: Session | null;
 }>) {
   return (
     <html lang="en">
       <link rel="icon" href="/icon.PNG" />
       <body className={inter.className}>
         <Header />
-        {children}
+        <AuthProvider session={session}>{children}</AuthProvider>
         <Footer />
       </body>
     </html>

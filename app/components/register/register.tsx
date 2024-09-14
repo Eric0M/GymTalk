@@ -13,7 +13,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Loader2, Github } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { FcGoogle } from "react-icons/fc";
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -91,7 +92,7 @@ export default function Register() {
             {isLoading ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (
-              <Github className="mr-2 h-4 w-4" />
+              <FcGoogle className="mr-2 h-4 w-4" />
             )}{" "}
             Continue with Google
           </Button>
