@@ -83,7 +83,8 @@ export default function Register() {
               <span className="bg-zinc-900 px-2 text-zinc-400">Or</span>
             </div>
           </div>
-          <Button
+          {/* TODO : Add google login */}
+          {/* <Button
             variant="outline"
             type="button"
             disabled={isLoading}
@@ -95,7 +96,7 @@ export default function Register() {
               <FcGoogle className="mr-2 h-4 w-4" />
             )}{" "}
             Continue with Google
-          </Button>
+          </Button> */}
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-zinc-400">
