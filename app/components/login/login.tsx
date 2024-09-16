@@ -17,13 +17,12 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function LoginScreen() {
-  // const { data: session } = useSession();
-  // const router = useRouter();
+  const { data: session } = useSession();
+  const router = useRouter();
 
-  // TODO: Add login functionality
-  // if (session) {
-  //   router.replace("/profile");
-  // }
+  if (session) {
+    router.replace("/profile");
+  }
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-zinc-900 text-white">
@@ -62,22 +61,22 @@ export default function LoginScreen() {
               Log in
             </Button>
           </form>
-          {/* <div className="relative">
+          <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <Separator className="w-full" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-zinc-900 px-2 text-zinc-400">Or</span>
             </div>
-          </div> */}
-          {/* <Button
+          </div>
+          <Button
             variant="outline"
             className="w-full bg-white text-black hover:bg-zinc-200 hover:text-black"
             onClick={() => signIn("google")}
           >
             <FcGoogle className="mr-2 h-4 w-4" />
             Continue with Google
-          </Button> */}
+          </Button>
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-zinc-400">

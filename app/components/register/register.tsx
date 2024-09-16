@@ -48,7 +48,7 @@ export default function Register() {
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="calisthenicsgod@gmail.com"
                 required
                 className="bg-zinc-800 border-zinc-700 text-white"
                 disabled={isLoading}
@@ -75,16 +75,16 @@ export default function Register() {
               Register
             </Button>
           </form>
-          {/* <div className="relative">
+          <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <Separator className="w-full" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-zinc-900 px-2 text-zinc-400">Or</span>
             </div>
-          </div> */}
+          </div>
           {/* TODO : Add google login */}
-          {/* <Button
+          <Button
             variant="outline"
             type="button"
             disabled={isLoading}
@@ -96,7 +96,7 @@ export default function Register() {
               <FcGoogle className="mr-2 h-4 w-4" />
             )}{" "}
             Continue with Google
-          </Button> */}
+          </Button>
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-zinc-400">
