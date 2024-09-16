@@ -16,6 +16,9 @@ import { Separator } from "@/components/ui/separator";
 import { Loader2 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 export default function Register() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -26,6 +29,14 @@ export default function Register() {
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
+  }
+
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  if (session) {
+    router.replace("/profile");
+    return null;
   }
 
   return (
@@ -89,6 +100,7 @@ export default function Register() {
             type="button"
             disabled={isLoading}
             className="w-full bg-white text-black hover:bg-zinc-200 hover:text-black"
+            onClick={() => signIn("google")}
           >
             {isLoading ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

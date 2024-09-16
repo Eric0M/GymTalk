@@ -22,6 +22,7 @@ export default function LoginScreen() {
 
   if (session) {
     router.replace("/profile");
+    return null;
   }
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
