@@ -20,7 +20,9 @@ const handler = NextAuth({
     async signIn({ account, profile, user, credentials }: any) {
       console.log("about to try to connect to db");
       try {
+        console.log("inside try");
         await connectToDB();
+        console.log("connected to db");
         const userExists = await User.findOne({
           email: user.email,
         });
