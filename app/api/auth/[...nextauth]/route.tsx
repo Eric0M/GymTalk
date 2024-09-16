@@ -32,6 +32,8 @@ const handler = NextAuth({
             email: user.email,
           });
         }
+
+        console.log("user created");
         return true;
       } catch (error) {
         console.log(error);
