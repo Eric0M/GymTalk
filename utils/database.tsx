@@ -11,7 +11,7 @@ export const connectToDB = async () => {
 
   try {
     await mongoose.connect(
-      `mongodb+srv://eejm:${process.env.MONGO_DB_PASS}@cluster0.vhk5t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+      `mongodb+srv://eejm:${process.env.MONGO_DB_PASS}@cluster0.vhk5t.mongodb.net/GymTalk_DB?retryWrites=true&w=majority&appName=Cluster0`
     );
     isConnected = true;
     console.log("MongoDB connected");
