@@ -62,14 +62,14 @@ export default function LoginScreen() {
               Log in
             </Button>
           </form>
-          <div className="relative">
+          {/* <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <Separator className="w-full" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-zinc-900 px-2 text-zinc-400">Or</span>
             </div>
-          </div>
+          </div> */}
           {/* <Button
             variant="outline"
             className="w-full bg-white text-black hover:bg-zinc-200 hover:text-black"
