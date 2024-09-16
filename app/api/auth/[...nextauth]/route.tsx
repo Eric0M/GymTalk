@@ -13,6 +13,7 @@ const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async session({ session }) {
+      console.log("Inside session");
       return session;
     },
 
