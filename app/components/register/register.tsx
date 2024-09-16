@@ -94,7 +94,6 @@ export default function Register() {
               <span className="bg-zinc-900 px-2 text-zinc-400">Or</span>
             </div>
           </div>
-          {/* TODO : Add google login */}
           <Button
             variant="outline"
             type="button"
