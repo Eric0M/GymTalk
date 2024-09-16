@@ -8,11 +8,9 @@ export const connectToDB = async () => {
   if (isConnected) {
     console.log("MongoDB is already connected");
     return;
-  } else {
-    console.log("MongoDB is not connected");
   }
-  console.log(process.env.MONGO_DB_PASS);
   try {
+    console.log("trying to connect to database");
     await mongoose.connect(
       `mongodb+srv://eejm:${process.env.MONGO_DB_PASS}@gymtalk.vhk5t.mongodb.net/GymTalk?retryWrites=true&w=majority&appName=GymTalk`
     );
