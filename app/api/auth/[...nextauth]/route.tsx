@@ -19,11 +19,11 @@ const handler = NextAuth({
     async signIn({ account, profile, user, credentials }: any) {
       try {
         await connectToDB();
-        const userExists = await User.find({
+        const userExists = await User.findOne({
           email: user.email,
         });
         if (!userExists) {
-          await User.insertMany({
+          await User.create({
             name: user.name,
             email: user.email,
           });
