@@ -31,13 +31,13 @@ export default function Register() {
     }, 3000);
   }
 
-  const { data: session } = useSession();
-  const router = useRouter();
+  // const { data: session } = useSession();
+  // const router = useRouter();
 
-  if (session) {
-    router.replace("/profile");
-    return null;
-  }
+  // if (session) {
+  //   router.replace("/profile");
+  //   return null;
+  // }
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
@@ -86,7 +86,7 @@ export default function Register() {
               Register
             </Button>
           </form>
-          <div className="relative">
+          {/* <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <Separator className="w-full" />
             </div>
@@ -107,7 +107,7 @@ export default function Register() {
               <FcGoogle className="mr-2 h-4 w-4" />
             )}{" "}
             Continue with Google
-          </Button>
+          </Button> */}
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-zinc-400">

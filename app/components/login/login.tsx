@@ -17,13 +17,14 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function LoginScreen() {
-  const { data: session } = useSession();
-  const router = useRouter();
+  // TODO: Add google login
+  // const { data: session } = useSession();
+  // const router = useRouter();
 
-  if (session) {
-    router.replace("/profile");
-    return null;
-  }
+  // if (session) {
+  //   router.replace("/profile");
+  //   return null;
+  // }
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-zinc-900 text-white">
@@ -62,7 +63,7 @@ export default function LoginScreen() {
               Log in
             </Button>
           </form>
-          <div className="relative">
+          {/* <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <Separator className="w-full" />
             </div>
@@ -77,7 +78,7 @@ export default function LoginScreen() {
           >
             <FcGoogle className="mr-2 h-4 w-4" />
             Continue with Google
-          </Button>
+          </Button> */}
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-zinc-400">
