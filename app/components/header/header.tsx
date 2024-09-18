@@ -42,7 +42,7 @@ export default async function Header() {
                   href={"/profile"}
                   className="text-gray-500 hover:text-white"
                 >
-                  Profile
+                  Profile{" "}
                 </Link>
                 <Link
                   href={"/api/auth/signout?callbackUrl=/"}
