@@ -19,7 +19,12 @@ export const metadata: Metadata = {
     "Calisthenics community for athletes serious about levelling up their calisthenics skills.",
 };
 
-export default function RootLayout({ children }: any) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+  session: Session | null;
+}>) {
   return (
     <html lang="en">
       <link rel="icon" href="/icon.PNG" />
@@ -27,6 +32,7 @@ export default function RootLayout({ children }: any) {
         <AuthProvider>
           <Header />
           {children}
+
           <Footer />
         </AuthProvider>
       </body>
