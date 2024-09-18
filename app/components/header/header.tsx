@@ -37,12 +37,20 @@ export default async function Header() {
           </nav>
           <div className="hidden md:block">
             {session ? (
-              <Link
-                href={"/api/auth/signout?callbackUrl=/"}
-                className="text-gray-500 hover:text-white"
-              >
-                Logout
-              </Link>
+              <>
+                <Link
+                  href={"/profile"}
+                  className="text-gray-500 hover:text-white"
+                >
+                  Profile
+                </Link>
+                <Link
+                  href={"/api/auth/signout?callbackUrl=/"}
+                  className="text-gray-500 hover:text-white"
+                >
+                  Logout
+                </Link>
+              </>
             ) : (
               <Link
                 href="/api/auth/signin"
