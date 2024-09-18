@@ -1,6 +1,7 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-
+import { constants } from "@/constants";
 export default function PricingComponent() {
   const tiers = [
     {
@@ -83,13 +84,17 @@ export default function PricingComponent() {
                 </ul>
               </div>
               <Button
+                // Change the testlink to be tier.name and make each link named the same as the tier
+                onClick={() => {
+                  window.open(constants.paymentLinks.TestLink, "_blank");
+                }}
                 className={`mt-8 w-full ${
                   tier.popular
                     ? "bg-yellow-400 hover:bg-yellow-300 text-black"
                     : "bg-indigo-600 hover:bg-indigo-400 text-white"
                 }`}
               >
-                {index === 2 ? "Contact Sales" : "Get Started"}
+                Get Started
               </Button>
             </div>
           ))}

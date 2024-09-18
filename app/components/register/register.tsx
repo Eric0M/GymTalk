@@ -81,6 +81,7 @@ export default function Register() {
               type="submit"
               className="w-full bg-indigo-600 text-white hover:bg-indigo-400"
               disabled={isLoading}
+              onClick={() => signIn()}
             >
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Register

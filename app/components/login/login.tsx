@@ -15,6 +15,7 @@ import { FcGoogle } from "react-icons/fc";
 
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { connectToDB } from "@/utils/database";
 
 export default function LoginScreen() {
   // TODO: Add google login
