@@ -21,14 +21,14 @@ export function MobileMenu({ navItems }: { navItems: NavItem[] }) {
       redirect("/api/auth/signin?callbackUrl=/profile");
     },
   });
-  useEffect(() => {
-    if (
-      !session &&
-      (pathname === "/profile" || pathname.startsWith("/protected"))
-    ) {
-      redirect("/api/auth/signin?callbackUrl=" + pathname);
-    }
-  }, [session, pathname]);
+  // useEffect(() => {
+  //   if (
+  //     !session &&
+  //     (pathname === "/profile" || pathname.startsWith("/protected"))
+  //   ) {
+  //     redirect("/api/auth/signin?callbackUrl=" + pathname);
+  //   }
+  // }, [session, pathname]);
 
   useEffect(() => {
     const handleResize = () => {
