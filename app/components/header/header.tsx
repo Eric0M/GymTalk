@@ -44,7 +44,10 @@ export default async function Header() {
                 Logout
               </Link>
             ) : (
-              <Link href="/login" className={`text-gray-500 hover:text-white `}>
+              <Link
+                href="/api/auth/signin"
+                className={`text-gray-500 hover:text-white `}
+              >
                 Login
               </Link>
             )}
