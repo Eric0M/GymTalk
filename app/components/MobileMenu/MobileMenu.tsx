@@ -18,7 +18,7 @@ export function MobileMenu({ navItems }: { navItems: NavItem[] }) {
   const { data: session } = useSession({
     required: false,
     onUnauthenticated() {
-      redirect("/api/auth/signin?callbackUrl=/profile");
+      redirect("/api/auth/signin?callbackUrl=/api/auth/signin");
     },
   });
   // useEffect(() => {
