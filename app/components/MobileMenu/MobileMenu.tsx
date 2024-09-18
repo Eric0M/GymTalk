@@ -16,11 +16,19 @@ export function MobileMenu({ navItems }: { navItems: NavItem[] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const { data: session } = useSession({
-    required: true,
+    required: false,
     onUnauthenticated() {
       redirect("/api/auth/signin?callbackUrl=/profile");
     },
   });
+  useEffect(() => {
+    if (
+      !session &&
+      (pathname === "/profile" || pathname.startsWith("/protected"))
+    ) {
+      redirect("/api/auth/signin?callbackUrl=" + pathname);
+    }
+  }, [session, pathname]);
 
   useEffect(() => {
     const handleResize = () => {
