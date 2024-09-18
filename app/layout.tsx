@@ -19,20 +19,17 @@ export const metadata: Metadata = {
     "Calisthenics community for athletes serious about levelling up their calisthenics skills.",
 };
 
-export default function RootLayout({
-  children,
-  session,
-}: Readonly<{
-  children: React.ReactNode;
-  session: Session | null;
-}>) {
+export default function RootLayout({ children }: any) {
   return (
     <html lang="en">
       <link rel="icon" href="/icon.PNG" />
       <body className={inter.className}>
-        <Header />
-        <AuthProvider session={session}>{children}</AuthProvider>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          {children}
+
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

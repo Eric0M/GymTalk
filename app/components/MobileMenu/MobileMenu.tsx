@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 type NavItem = {
   href: string;
@@ -13,6 +15,12 @@ type NavItem = {
 export function MobileMenu({ navItems }: { navItems: NavItem[] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/api/auth/signin?callbackUrl=/profile");
+    },
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,18 +54,37 @@ export function MobileMenu({ navItems }: { navItems: NavItem[] }) {
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 z-50 bg-black">
           <div className="flex flex-col items-center justify-center h-full">
-            {[...navItems, { href: "/login", label: "Login" }].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`block px-3 py-4 text-xl font-medium hover:text-white ${
-                  isActive(item.href) ? "text-white" : "text-gray-300"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {session
+              ? [
+                  ...navItems,
+                  { href: "/api/auth/signout", label: "Logout" },
+                  { href: "/profile", label: "Profile" },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`block px-3 py-4 text-xl font-medium hover:text-white ${
+                      isActive(item.href) ? "text-white" : "text-gray-300"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))
+              : [...navItems, { href: "/api/auth/signin", label: "Login" }].map(
+                  (item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`block px-3 py-4 text-xl font-medium hover:text-white ${
+                        isActive(item.href) ? "text-white" : "text-gray-300"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                )}
             <button
               onClick={() => setIsMenuOpen(false)}
               className="mt-8 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
