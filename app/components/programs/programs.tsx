@@ -10,6 +10,7 @@ export default function ProgramOptions() {
       description:
         "For athletes who have a strong foundation and looking to take their progress to the next level.",
       buttonText: "Get Started",
+      href: "/programs/Intermediate_Advanced_Program",
     },
     {
       image: "/Handstand.jpg",
@@ -17,6 +18,7 @@ export default function ProgramOptions() {
       description:
         "For people both just starting out or advanced athletes looking to improve their technique.",
       buttonText: "Get Started",
+      href: "/programs/Handstand_Mastery_Program",
     },
     {
       image: "/Front_Lever.PNG",
@@ -24,6 +26,7 @@ export default function ProgramOptions() {
       description:
         "This is the perfect all inclusive program for anyone wanting to improve at calisthenics.",
       buttonText: "Get Started",
+      href: "/programs/Calisthenics_Basics_Program",
     },
   ];
 
@@ -52,6 +55,9 @@ export default function ProgramOptions() {
               <Button
                 variant="secondary"
                 className=" w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
+                onClick={() => {
+                  window.location.href = program.href;
+                }}
               >
                 {program.buttonText}
               </Button>
