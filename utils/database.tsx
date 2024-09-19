@@ -1,4 +1,3 @@
-"use server";
 import mongoose from "mongoose";
 const uri = `mongodb+srv://eejm:${process.env.MONGO_DB_PASS}@gymtalk.vhk5t.mongodb.net/GymTalk?retryWrites=true&w=majority&appName=GymTalk`;
 
