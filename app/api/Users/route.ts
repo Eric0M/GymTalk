@@ -3,6 +3,6 @@
 // import bcrypt from "bcrypt";
 
 // TODO : Add validation
-export default () => {
+export default function hi() {
   return null;
-};
+}
