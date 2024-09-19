@@ -3,3 +3,6 @@
 // import bcrypt from "bcrypt";
 
 // TODO : Add validation
+export default () => {
+  return null;
+};
