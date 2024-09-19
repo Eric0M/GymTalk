@@ -1,7 +1,5 @@
-import React from "react";
+import NextAuth from "next-auth";
+import { options } from "../auth/[...nextauth]/options";
+const handler = NextAuth(options);
 
-const route = () => {
-  return <div>route</div>;
-};
-
-export default route;
+export { handler as GET, handler as POST };
