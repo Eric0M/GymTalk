@@ -9,7 +9,7 @@ const profile = async () => {
   if (!session) {
     redirect("/api/auth/signin?callbackUrl=/api/auth/signin");
   }
-  return <div>{session?.user}</div>;
+  return <div>{session?.user?.firstName}</div>;
 };
 
 export default profile;
