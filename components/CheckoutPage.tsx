@@ -52,7 +52,50 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
         setLoading(false);
         return;
       }
+
+      const { error } = await stripe.confirmPayment({
+        elements,
+        clientSecret,
+        confirmParams: {
+          return_url: "https://google.com",
+        },
+      });
+
+      if (error) {
+        setErrorMessage(error.message);
+      }
+
+      setLoading(false);
     };
+
+    if (!clientSecret || !stripe || !elements) {
+      return (
+        <div className="flex items-center justify-center min-h-screen bg-black">
+          <div className="relative w-24 h-24">
+            <svg
+              className="animate-spin"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="#818cf8"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="#4f46e5"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="min-h-screen bg-black text-white flex flex-col">
