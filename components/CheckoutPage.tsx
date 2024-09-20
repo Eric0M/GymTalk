@@ -9,6 +9,7 @@ import {
 import convertToSubcurrency from "@/lib/convertToSubcurrency";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import { set } from "mongoose";
 interface CheckoutPageProps {
   amount: number;
   imageUrl: string;
@@ -37,6 +38,21 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
           setClientSecret(data.clientSecret);
         });
     }, [amount]);
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setLoading(true);
+      if (!stripe || !elements) {
+        return;
+      }
+      const { error: submitError } = await elements.submit();
+
+      if (submitError) {
+        setErrorMessage(submitError.message);
+        setLoading(false);
+        return;
+      }
+    };
 
     return (
       <div className="min-h-screen bg-black text-white flex flex-col">
@@ -76,10 +92,15 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
             </div>
             <div className="w-full lg:w-5/12 xl:w-2/5">
               <div className="p-6 rounded-lg shadow-lg bg-white text-black w-full">
-                {clientSecret && <PaymentElement />}
-                <Button className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white py-3 text-lg font-semibold">
-                  Pay Now
-                </Button>
+                <form onSubmit={handleSubmit}>
+                  {clientSecret && <PaymentElement />}
+                  <Button
+                    className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white py-3 text-lg font-semibold"
+                    disabled={loading || !stripe}
+                  >
+                    {!loading ? `Pay${amount}` : "Loading..."}
+                  </Button>
+                </form>
               </div>
             </div>
           </div>
