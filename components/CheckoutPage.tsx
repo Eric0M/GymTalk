@@ -71,11 +71,6 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
               </h2>
               <p className="text-xl sm:text-2xl">Price: ${amount}</p>
             </div>
-            <div className="w-full lg:w-5/12 xl:w-2/5">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-2">
-                Secure Checkout
-              </h2>
-            </div>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
@@ -91,6 +86,11 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
               </div>
             </div>
             <div className="w-full lg:w-5/12 xl:w-2/5">
+              <div className="w-full lg:w-5/12 xl:w-2/5">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-2">
+                  Secure Checkout
+                </h2>
+              </div>
               <div className="p-6 rounded-lg shadow-lg bg-white text-black w-full">
                 <form onSubmit={handleSubmit}>
                   {clientSecret && <PaymentElement />}
