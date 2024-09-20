@@ -98,7 +98,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white py-3 text-lg font-semibold"
                     disabled={loading || !stripe}
                   >
-                    {!loading ? `Pay${amount}` : "Loading..."}
+                    {!loading ? `Pay: $${amount}` : "Processing..."}
                   </Button>
                 </form>
               </div>
