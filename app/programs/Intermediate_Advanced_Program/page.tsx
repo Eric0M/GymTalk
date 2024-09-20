@@ -22,7 +22,7 @@ const StripePageAdvancedProgram = () => {
       options={{
         mode: "payment",
         amount: convertToSubcurrency(Intermediate_Advanced_Price),
-        currency: "cad",
+        currency: "usd",
       }}
     >
       <CheckoutPage
