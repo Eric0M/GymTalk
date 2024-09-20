@@ -140,12 +140,16 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
                   </div>
                 )}
                 <Button
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-2 sm:py-3 text-base sm:text-lg font-semibold"
+                  className="w-full bg-indigo-600 hover:bg-indigo-400 text-primary-foreground py-2 sm:py-3 text-base sm:text-lg font-semibold"
                   disabled={loading || !stripe}
                 >
-                  {!loading ? `Pay: $${amount}` : "Processing..."}
+                  {!loading ? `Pay: $${amount} CAD` : "Processing..."}
                 </Button>
               </form>
+              <div className="mt-6 text-sm text-indigo-600 space-y-2">
+                <p>✓ Secure, encrypted payment</p>
+                <p>✓ Instant access after payment</p>
+              </div>
             </div>
           </div>
         </div>
