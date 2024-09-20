@@ -57,7 +57,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
         elements,
         clientSecret,
         confirmParams: {
-          return_url: "/success",
+          return_url: "https://gymtalk.ca/success",
         },
       });
 
