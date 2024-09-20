@@ -63,68 +63,50 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
           </h1>
         </div>
 
-        <div className="flex flex-col w-full max-w-[1400px] mx-auto flex-grow px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
-            <div className="w-full lg:w-1/2 xl:w-3/5 text-center">
-              <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
+        <div className="flex flex-col md:flex-row w-full max-w-[1200px] mx-auto flex-grow px-4 sm:px-6 md:px-8 lg:px-12 gap-8 items-start">
+          {/* Left Section (Image) */}
+          <div className="w-full md:w-1/2 flex flex-col">
+            <div className="text-center mb-4 h-16 flex items-center justify-center">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold px-2">
                 Program name: {programName}
               </h2>
-              <p className="text-xl sm:text-2xl">Price: ${amount}</p>
+            </div>
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg">
+              <Image
+                src={imageUrl}
+                alt="Calisthenics Program"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-            <div className="w-full lg:w-1/2 xl:w-3/5">
-              <div className="relative w-full pt-[56.25%] overflow-hidden rounded-lg">
-                <Image
-                  src={imageUrl}
-                  alt="Calisthenics Program"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-center"
-                />
-              </div>
+          {/* Right Section (Checkout) */}
+          <div className="w-full md:w-1/2 flex flex-col">
+            <div className="text-center mb-4 h-16 flex items-center justify-center">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold">
+                Secure Checkout
+              </h2>
             </div>
-            <div className="w-full lg:w-5/12 xl:w-2/5">
-              <div className="w-full lg:w-5/12 xl:w-2/5 text-center">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-2 ">
-                  Secure Checkout
-                </h2>
-              </div>
-              <div className="p-6 rounded-lg shadow-lg bg-white text-black w-full">
-                <form onSubmit={handleSubmit}>
-                  {clientSecret && <PaymentElement />}
-                  <Button
-                    className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white py-3 text-lg font-semibold"
-                    disabled={loading || !stripe}
-                  >
-                    {!loading ? `Pay: $${amount}` : "Processing..."}
-                  </Button>
-                </form>
-              </div>
+            <div className="p-4 sm:p-6 rounded-lg shadow-lg bg-white text-black w-full">
+              <form onSubmit={handleSubmit} className="flex flex-col">
+                {clientSecret && (
+                  <div className="mb-6">
+                    <PaymentElement />
+                  </div>
+                )}
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-2 sm:py-3 text-base sm:text-lg font-semibold"
+                  disabled={loading || !stripe}
+                >
+                  {!loading ? `Pay: $${amount}` : "Processing..."}
+                </Button>
+              </form>
             </div>
           </div>
         </div>
       </div>
-      // <>
-      //   <h1 className="text-4xl font-bold text-white bg-black text-center py-20 px-90 md:px-12 lg:px-16 xl:px-70">
-      //     You Are One Step Away From Taking Your Calisthenics To The Next Level
-      //   </h1>
-      //   <div className="min-h-screen bg-black flex flex-row justify-evenly ">
-      //     <h2 className="text-2xl text-white m-4 ">
-      //       Program name : Price: ${amount}
-      //     </h2>
-      //     <div className="w-full max-w-md text-white text-center">
-      //       <h2 className="text-3xl font-bold text-white m-4">Secure Checkout</h2>
-      //       <div className="w-full max-w-md p-6 rounded-lg shadow-lg bg-white">
-      //         {clientSecret && <PaymentElement />}
-      //         <Button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-400">
-      //           Pay Now
-      //         </Button>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </>
     );
   }
 };
