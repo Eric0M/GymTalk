@@ -57,7 +57,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
         elements,
         clientSecret,
         confirmParams: {
-          return_url: "https://google.com",
+          return_url: "/success",
         },
       });
 

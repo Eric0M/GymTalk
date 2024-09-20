@@ -55,25 +55,25 @@ export default async function ProgramOptions() {
               <p className="text-center mb-4 text-gray-400">
                 {program.description}
               </p>
-              {/* {session ? ( */}
-              <Link href={program.href}>
-                <Button
-                  variant="secondary"
-                  className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
-                >
-                  {program.buttonText}
-                </Button>
-              </Link>
-              {/* ) : ( */}
-              <Link href="/api/auth/signin">
-                <Button
-                  variant="secondary"
-                  className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
-                >
-                  {program.buttonText}
-                </Button>
-              </Link>
-              {/* )} */}
+              {session ? (
+                <Link href={program.href}>
+                  <Button
+                    variant="secondary"
+                    className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
+                  >
+                    {program.buttonText}
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/api/auth/signin">
+                  <Button
+                    variant="secondary"
+                    className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
+                  >
+                    {program.buttonText}
+                  </Button>
+                </Link>
+              )}
             </div>
           ))}
         </div>
