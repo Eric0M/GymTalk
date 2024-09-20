@@ -1,8 +1,11 @@
-"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { options } from "../../api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth";
 
-export default function ProgramOptions() {
+export default async function ProgramOptions() {
+  const session = await getServerSession(options);
   const programs = [
     {
       image: "/Planche.jpg",
@@ -52,28 +55,27 @@ export default function ProgramOptions() {
               <p className="text-center mb-4 text-gray-400">
                 {program.description}
               </p>
-              <Button
-                variant="secondary"
-                className=" w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
-                onClick={() => {
-                  window.location.href = program.href;
-                }}
-              >
-                {program.buttonText}
-              </Button>
+              {session ? (
+                <Link href={program.href}>
+                  <Button
+                    variant="secondary"
+                    className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
+                  >
+                    {program.buttonText}
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/api/auth/signin">
+                  <Button
+                    variant="secondary"
+                    className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
+                  >
+                    {program.buttonText}
+                  </Button>
+                </Link>
+              )}
             </div>
           ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Button
-            variant="outline"
-            className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 border-none rounded-full"
-            onClick={() => {
-              window.location.href = "/programs";
-            }}
-          >
-            See All Programs
-          </Button>
         </div>
       </div>
     </section>
