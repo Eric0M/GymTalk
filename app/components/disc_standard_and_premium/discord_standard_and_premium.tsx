@@ -110,7 +110,7 @@ export default async function Membership_Tiers() {
           </CardContent>
           <CardFooter>
             {session ? (
-              <Link href="/membership/plans" className="w-full">
+              <Link href="/plans" className="w-full">
                 <Button className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold">
                   Upgrade to Premium
                 </Button>
