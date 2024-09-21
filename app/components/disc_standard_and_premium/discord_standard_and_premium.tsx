@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,8 +14,12 @@ import {
   CalendarCheck,
   Presentation,
 } from "lucide-react";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { options } from "../../api/auth/[...nextauth]/options";
 
-export default function Membership_Tiers() {
+export default async function Membership_Tiers() {
+  const session = await getServerSession(options);
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 space-y-8">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
@@ -62,14 +64,11 @@ export default function Membership_Tiers() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button
-              className="w-full bg-indigo-600 hover:bg-indigo-400 text-white"
-              onClick={() => {
-                window.open("https://discord.gg/65Bn7YZj", "_blank");
-              }}
-            >
-              Get Started
-            </Button>
+            <Link href="https://discord.gg/65Bn7YZj" className="w-full">
+              <Button className="w-full bg-indigo-600 hover:bg-indigo-400 text-white">
+                Get Started
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
 
@@ -109,14 +108,19 @@ export default function Membership_Tiers() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button
-              className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold"
-              onClick={() => {
-                window.location.href = "/membership/plans";
-              }}
-            >
-              Upgrade to Premium
-            </Button>
+            {session ? (
+              <Link href="/membership/plans" className="w-full">
+                <Button className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold">
+                  Upgrade to Premium
+                </Button>
+              </Link>
+            ) : (
+              <Link href="/api/auth/signin" className="w-full">
+                <Button className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold">
+                  Get Started
+                </Button>
+              </Link>
+            )}
           </CardFooter>
         </Card>
       </div>

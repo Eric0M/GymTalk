@@ -1,36 +1,44 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { constants } from "@/constants";
-export default function PricingComponent() {
+import { getServerSession } from "next-auth";
+import { options } from "../../api/auth/[...nextauth]/options";
+import Link from "next/link";
+
+export default async function PricingComponent() {
+  const session = await getServerSession(options);
   const tiers = [
     {
-      name: "Basic",
-      price: "$9.99",
+      name: constants.Basic.Name,
+      price: constants.Basic.Price,
       features: [
         "Access to Premium Server and Resources",
         "Weekly Newsletter",
         "Meet other like-minded people that share similar goals",
       ],
+      testLink:
+        constants.Basic.TestLink + "?prefilled_email=" + session?.user?.email,
     },
     {
-      name: "Pro",
-      price: "$19.99",
+      name: constants.Pro.Name,
+      price: constants.Pro.Price,
       features: [
         "All Basic features",
         "Weekly group discussions lead by Eric with others at similar skill levels",
       ],
       popular: true,
+      testLink: constants.Pro.TestLink,
     },
     {
-      name: "Elite",
-      price: "$49.99",
+      name: constants.Elite.Name,
+      price: constants.Elite.Price,
       features: [
         "All Pro features",
         "1 on 1 coaching sessions and discussions",
         "Unlimited Support and feedback from Eric",
         "Custom workout plans and training programs",
       ],
+      testLink: constants.Elite.TestLink,
     },
   ];
 
@@ -83,19 +91,23 @@ export default function PricingComponent() {
                   ))}
                 </ul>
               </div>
-              <Button
-                // Change the testlink to be tier.name and make each link named the same as the tier
-                onClick={() => {
-                  window.open(constants.paymentLinks.TestLink, "_blank");
-                }}
-                className={`mt-8 w-full ${
-                  tier.popular
-                    ? "bg-yellow-400 hover:bg-yellow-300 text-black"
-                    : "bg-indigo-600 hover:bg-indigo-400 text-white"
-                }`}
+              <Link
+                href={
+                  tier.testLink + "&prefilled_email=" + session?.user?.email
+                }
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Get Started
-              </Button>
+                <Button
+                  className={`mt-8 w-full ${
+                    tier.popular
+                      ? "bg-yellow-400 hover:bg-yellow-300 text-black"
+                      : "bg-indigo-600 hover:bg-indigo-400 text-white"
+                  }`}
+                >
+                  Get Started
+                </Button>
+              </Link>
             </div>
           ))}
         </div>

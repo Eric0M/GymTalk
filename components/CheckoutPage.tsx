@@ -129,7 +129,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({
           <div className="w-full md:w-1/2 flex flex-col">
             <div className="text-center mb-4 h-16 flex items-center justify-center">
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold">
-                Secure Checkout
+                Secure Checkout with Stripe
               </h2>
             </div>
             <div className="p-4 sm:p-6 rounded-lg shadow-lg bg-white text-black w-full">
