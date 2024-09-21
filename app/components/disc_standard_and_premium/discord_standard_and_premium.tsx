@@ -146,7 +146,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { options } from "../api/auth/[...nextauth]/options";
+import { options } from "../../api/auth/[...nextauth]/options";
 
 export default async function Membership_Tiers() {
   // Fetch the session on the server
