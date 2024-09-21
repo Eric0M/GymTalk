@@ -18,8 +18,12 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
 
+async function getSession() {
+  return await getServerSession(options);
+}
+
 export default async function Membership_Tiers() {
-  const session = await getServerSession(options);
+  const session = await getSession();
 
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 space-y-8">
