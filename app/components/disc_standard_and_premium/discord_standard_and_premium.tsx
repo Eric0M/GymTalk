@@ -128,6 +128,7 @@ export default function Membership_Tiers({ session }: any) {
 }
 export async function getServerSideProps({ context }: any) {
   const session = await getServerSession(context.req, context.res, options);
+  console.log("Session:", session);
   return {
     props: { session },
   };
