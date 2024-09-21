@@ -1,5 +1,5 @@
 import React from "react";
-import Disc_standard_and_premium from "../components/disc_standard_and_premium/discord_standard_and_premium";
+import Disc_standard_and_premium from "../disc_standard_and_premium/discord_standard_and_premium";
 
 const page = () => {
   return (
