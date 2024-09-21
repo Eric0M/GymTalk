@@ -18,8 +18,7 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
 
-export default async function Membership_Tiers() {
-  const session = await getServerSession(options);
+export default function Membership_Tiers({ session }: any) {
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 space-y-8">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
@@ -126,4 +125,10 @@ export default async function Membership_Tiers() {
       </div>
     </div>
   );
+}
+export async function getServerSideProps({ context }: any) {
+  const session = await getServerSession(context.req, context.res, options);
+  return {
+    props: { session },
+  };
 }
