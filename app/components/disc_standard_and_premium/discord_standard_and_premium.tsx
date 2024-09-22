@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export default async function Membership_Tiers() {
+export default function Membership_Tiers() {
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 space-y-8">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
