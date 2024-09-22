@@ -105,19 +105,11 @@ export default async function Membership_Tiers() {
             </div>
           </CardContent>
           <CardFooter>
-            {session ? (
-              <Link href="/plans" className="w-full">
-                <Button className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold">
-                  Upgrade to Premium
-                </Button>
-              </Link>
-            ) : (
-              <Link href="/api/auth/signin" className="w-full">
-                <Button className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold">
-                  Get Started
-                </Button>
-              </Link>
-            )}
+            <Link href="/plans" className="w-full">
+              <Button className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold">
+                Upgrade to Premium
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
       </div>
