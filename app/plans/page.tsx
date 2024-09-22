@@ -1,4 +1,3 @@
-"use client";
 import PricingComponent from "@/app/components/pricing/pricing";
 import React from "react";
 
