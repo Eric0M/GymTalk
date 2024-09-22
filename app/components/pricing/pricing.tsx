@@ -27,7 +27,8 @@ export default async function PricingComponent() {
         "Weekly group discussions lead by Eric with others at similar skill levels",
       ],
       popular: true,
-      testLink: constants.Pro.TestLink,
+      testLink:
+        constants.Pro.TestLink + "?prefilled_email=" + session?.user?.email,
     },
     {
       name: constants.Elite.Name,
@@ -38,7 +39,8 @@ export default async function PricingComponent() {
         "Unlimited Support and feedback from Eric",
         "Custom workout plans and training programs",
       ],
-      testLink: constants.Elite.TestLink,
+      testLink:
+        constants.Elite.TestLink + "?prefilled_email=" + session?.user?.email,
     },
   ];
 
