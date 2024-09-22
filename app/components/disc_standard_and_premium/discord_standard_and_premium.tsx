@@ -15,12 +15,8 @@ import {
   Presentation,
 } from "lucide-react";
 import Link from "next/link";
-import { getServerSession } from "next-auth";
-import { options } from "../../api/auth/[...nextauth]/options";
 
 export default async function Membership_Tiers() {
-  const session = await getServerSession(options);
-
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 space-y-8">
       <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-4">
