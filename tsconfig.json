@@ -21,6 +21,15 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/utils/database.js",
+    "app/api/Users/route.js",
+    "app/api/webhook/stripe/route.ts",
+    "app/(models)/User.js"
+  ],
   "exclude": ["node_modules"]
 }
