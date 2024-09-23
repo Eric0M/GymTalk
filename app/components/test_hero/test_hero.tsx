@@ -32,7 +32,7 @@ export default function Hero() {
             just as much as you do.
           </p>
           <Button
-            className="bg-indigo-600 hover:bg-indigo-400 text-white font-semibold py-2 px-6 md:py-3 md:px-8 rounded-full text-lg md:text-xl mt-2 md:mt-4"
+            className="bg-indigo-600 hover:bg-indigo-400 text-white py-2 px-6 md:py-3 md:px-8 rounded-full  mt-2 md:mt-4"
             onClick={() => {
               window.location.href = "/membership";
             }}

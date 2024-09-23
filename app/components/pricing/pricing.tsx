@@ -8,40 +8,40 @@ import Link from "next/link";
 export default async function PricingComponent() {
   const session = await getServerSession(options);
   const tiers = [
+    // {
+    //   name: constants[0].Name,
+    //   price: constants[0].Price,
+    //   features: [
+    //     "Access to Premium Server and Resources",
+    //     "Weekly Newsletter",
+    //     "Meet other like-minded people that share similar goals",
+    //   ],
+    //   testLink:
+    //     constants[0].TestLink + "?prefilled_email=" + session?.user?.email,
+    // },
     {
-      name: constants.Basic.Name,
-      price: constants.Basic.Price,
-      features: [
-        "Access to Premium Server and Resources",
-        "Weekly Newsletter",
-        "Meet other like-minded people that share similar goals",
-      ],
-      testLink:
-        constants.Basic.TestLink + "?prefilled_email=" + session?.user?.email,
-    },
-    {
-      name: constants.Pro.Name,
-      price: constants.Pro.Price,
+      name: constants[1].Name,
+      price: constants[1].Price,
       features: [
         "All Basic features",
         "Weekly group discussions lead by Eric with others at similar skill levels",
       ],
       popular: true,
       testLink:
-        constants.Pro.TestLink + "?prefilled_email=" + session?.user?.email,
+        constants[1].TestLink + "?prefilled_email=" + session?.user?.email,
     },
-    {
-      name: constants.Elite.Name,
-      price: constants.Elite.Price,
-      features: [
-        "All Pro features",
-        "1 on 1 coaching sessions and discussions",
-        "Unlimited Support and feedback from Eric",
-        "Custom workout plans and training programs",
-      ],
-      testLink:
-        constants.Elite.TestLink + "?prefilled_email=" + session?.user?.email,
-    },
+    // {
+    //   name: constants[2].Name,
+    //   price: constants[2].Price,
+    //   features: [
+    //     "All Pro features",
+    //     "1 on 1 coaching sessions and discussions",
+    //     "Unlimited Support and feedback from Eric",
+    //     "Custom workout plans and training programs",
+    //   ],
+    //   testLink:
+    //     constants[2].TestLink + "?prefilled_email=" + session?.user?.email,
+    // },
   ];
 
   return (
@@ -49,7 +49,7 @@ export default async function PricingComponent() {
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl">
-            Choose Your Level
+            Upgrade to GymTalk+
           </h2>
           <p className="mt-4 text-xl text-gray-300">
             Cancel anytime. No hidden fees.
@@ -79,7 +79,7 @@ export default async function PricingComponent() {
                   {tier.name}
                 </h3>
                 <p className="mt-4 text-4xl font-extrabold">
-                  {tier.price}
+                  ${tier.price}
                   <span className="text-xl font-normal text-gray-300">
                     /month
                   </span>
