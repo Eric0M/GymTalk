@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { connectToDB } from "@/app/utils/database";
 import User from "@/app/(models)/User";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST as string, {
   apiVersion: "2024-06-20",
 });
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -42,17 +42,17 @@ export async function POST(req: any) {
 
         const retrievedSession = data.object as Stripe.Checkout.Session; // Type assertion
         const sessionId = retrievedSession.id;
+        console.log("Received event data:", JSON.stringify(data, null, 2));
+        console.log(sessionId);
 
         const session = await stripe.checkout.sessions.retrieve(sessionId, {
           expand: ["line_items"],
         });
-        const customerId = session?.customer as string;
+        const customerId = session.customer as string;
         const customer = await stripe.customers.retrieve(customerId);
         const priceId = session?.line_items?.data[0]?.price?.id;
 
         if (isCustomer(customer)) {
-          const priceId = session?.line_items?.data[0]?.price?.id;
-
           let user = await User.findOne({ email: customer.email });
 
           if (!user) {
