@@ -50,8 +50,10 @@ export async function POST(req: any) {
         const customer = await stripe.customers.retrieve(customerId);
         const priceId = session?.line_items?.data[0]?.price?.id;
 
-        if ("email" in customer) {
-          user = await User.findOne({ email: customer.email });
+        if (isCustomer(customer)) {
+          const priceId = session?.line_items?.data[0]?.price?.id;
+
+          let user = await User.findOne({ email: customer.email });
 
           if (!user) {
             user = await User.create({
@@ -59,20 +61,16 @@ export async function POST(req: any) {
               name: customer.name,
               customerId,
             });
-
-            await user.save();
           }
+
+          // Update user data + Grant user access
+          user.priceId = priceId;
+          user.hasAccess = true;
+          await user.save();
         } else {
-          console.error("No user found");
-          throw new Error("No user found");
+          console.error("Customer is deleted or does not have an email.");
+          throw new Error("Customer is deleted or does not have an email.");
         }
-
-        // Update user data + Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
-        user.priceId = priceId;
-        user.hasAccess = true;
-        await user.save();
-
-        // Extra: >>>>> send email to dashboard <<<<
 
         break;
       }
@@ -102,4 +100,9 @@ export async function POST(req: any) {
   }
 
   return NextResponse.json({});
+}
+function isCustomer(
+  customer: Stripe.Customer | Stripe.DeletedCustomer
+): customer is Stripe.Customer {
+  return (customer as Stripe.Customer).email !== undefined;
 }
