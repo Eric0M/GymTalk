@@ -39,12 +39,13 @@ export async function POST(req: any) {
     switch (eventType) {
       case "checkout.session.completed": {
         let user;
-        const session = await stripe.checkout.sessions.retrieve(
-          data.object.object,
-          {
-            expand: ["line_items"],
-          }
-        );
+
+        const retrievedSession = data.object as Stripe.Checkout.Session; // Type assertion
+        const sessionId = retrievedSession.id;
+
+        const session = await stripe.checkout.sessions.retrieve(sessionId, {
+          expand: ["line_items"],
+        });
         const customerId = session?.customer as string;
         const customer = await stripe.customers.retrieve(customerId);
         const priceId = session?.line_items?.data[0]?.price?.id;
