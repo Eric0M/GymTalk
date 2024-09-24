@@ -36,6 +36,8 @@ export default async function productPage({
           href={
             constants[0].TestLink + "?prefilled_email=" + session?.user?.email
           }
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-full"
         >
           <Button className="w-full max-w-xs mx-auto bg-white text-black hover:bg-gray-200 text-lg py-6">
