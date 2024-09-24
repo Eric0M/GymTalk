@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
-import { connectToDB } from "@/app/utils/database";
+import { connectToDB } from "@/app/api/utils/database";
 import User from "@/app/(models)/User";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST as string, {
@@ -76,8 +76,6 @@ export async function POST(req: any) {
       }
 
       case "customer.subscription.deleted": {
-        // ❌ Revoke access to the product
-        // The customer might have changed the plan (higher or lower plan, cancel soon etc...)
         const subscription = await stripe.subscriptions.retrieve(
           data.object.object
         );
