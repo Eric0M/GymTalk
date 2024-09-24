@@ -26,7 +26,7 @@ export default async function PricingComponent() {
         "All Basic features",
         "Weekly group discussions lead by Eric with others at similar skill levels",
       ],
-      popular: true,
+      popular: false,
       testLink:
         constants[1].TestLink + "?prefilled_email=" + session?.user?.email,
     },
@@ -93,41 +93,39 @@ export default async function PricingComponent() {
                   ))}
                 </ul>
               </div>
-              {/* {session ? ( */}
-              <Link
-                href={
-                  tier.testLink + "&prefilled_email=" + session?.user?.email
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  className={`mt-8 w-full ${
-                    tier.popular
-                      ? "bg-yellow-400 hover:bg-yellow-300 text-black"
-                      : "bg-indigo-600 hover:bg-indigo-400 text-white"
-                  }`}
+              {session ? (
+                <Link
+                  href={tier.testLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Get Started
-                </Button>
-              </Link>
-              {/* ) : ( */}
-              <Link
-                href="/api/auth/signin"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  className={`mt-8 w-full ${
-                    tier.popular
-                      ? "bg-yellow-400 hover:bg-yellow-300 text-black"
-                      : "bg-indigo-600 hover:bg-indigo-400 text-white"
-                  }`}
+                  <Button
+                    className={`mt-8 w-full ${
+                      tier.popular
+                        ? "bg-yellow-400 hover:bg-yellow-300 text-black"
+                        : "bg-indigo-600 hover:bg-indigo-400 text-white"
+                    }`}
+                  >
+                    Get Started
+                  </Button>
+                </Link>
+              ) : (
+                <Link
+                  href="/api/auth/signin"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Get Started
-                </Button>
-              </Link>
-              {/* )} */}
+                  <Button
+                    className={`mt-8 w-full ${
+                      tier.popular
+                        ? "bg-yellow-400 hover:bg-yellow-300 text-black"
+                        : "bg-indigo-600 hover:bg-indigo-400 text-white"
+                    }`}
+                  >
+                    Get Started
+                  </Button>
+                </Link>
+              )}
             </div>
           ))}
         </div>
