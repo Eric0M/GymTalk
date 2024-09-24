@@ -1,13 +1,21 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import Link from "next/link";
+import { constants } from "@/constants";
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 
 interface ProductPageProps {
   title?: string;
   imageUrl?: string;
 }
 
-export default function productPage({ title, imageUrl }: ProductPageProps) {
+export default async function productPage({
+  title,
+  imageUrl,
+}: ProductPageProps) {
+  const session = await getServerSession(options);
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl space-y-6 text-center">
@@ -15,15 +23,25 @@ export default function productPage({ title, imageUrl }: ProductPageProps) {
           <Image
             src={imageUrl as string}
             alt={`${title} Image`}
-            layout="fill"
-            objectFit="cover"
-            className="hover:scale-105 transition-transform duration-300"
+            width={400}
+            height={400}
+            className="object-cover hover:scale-105 transition-transform duration-300"
+            priority
           />
         </div>
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">{title}</h1>
-        <Button className="w-full max-w-xs mx-auto bg-white text-black hover:bg-gray-200 text-lg py-6">
-          Buy Now
-        </Button>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold pb-4">
+          {title}
+        </h1>
+        <Link
+          href={
+            constants[0].TestLink + "?prefilled_email=" + session?.user?.email
+          }
+          className="w-full"
+        >
+          <Button className="w-full max-w-xs mx-auto bg-white text-black hover:bg-gray-200 text-lg py-6">
+            Buy Now
+          </Button>
+        </Link>
         <ul className="space-y-2 text-left max-w-md mx-auto">
           <li className="flex items-center">
             <Check className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
