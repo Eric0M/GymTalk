@@ -23,8 +23,15 @@ export default async function PricingComponent() {
       name: constants[1].Name,
       price: constants[1].Price,
       features: [
-        "All Basic features",
-        "Weekly group discussions lead by Eric with others at similar skill levels",
+        "Weekly/Biweekly small group discussions lead by Eric with others at similar skill levels",
+        "Access to Premium Server and Resources",
+        "Weekly Newsletter",
+        "Meet other like-minded people that share similar goals",
+        "Become more consistent and develop faster as a group",
+        "Unlimited Support and feedback from someone who has been there before",
+        "Custom workout plans and training programs",
+        "Video database of hundreds of in depth tutorials and exercise form guides",
+        "Access to all past recorded group discussions",
       ],
       popular: false,
       testLink:
