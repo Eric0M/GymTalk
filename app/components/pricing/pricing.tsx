@@ -20,8 +20,8 @@ export default async function PricingComponent() {
     //     constants[0].TestLink + "?prefilled_email=" + session?.user?.email,
     // },
     {
-      name: constants[1].Name,
-      price: constants[1].Price,
+      name: constants[0].Name,
+      price: constants[0].Price,
       features: [
         "Weekly small group discussions lead by Eric with others at similar skill levels",
         "Access to Premium Server and Resources",
@@ -32,7 +32,7 @@ export default async function PricingComponent() {
       ],
       popular: false,
       testLink:
-        constants[1].TestLink + "?prefilled_email=" + session?.user?.email,
+        constants[0].TestLink + "?prefilled_email=" + session?.user?.email,
     },
     // {
     //   name: constants[2].Name,
@@ -56,7 +56,8 @@ export default async function PricingComponent() {
             Upgrade to GymTalk+
           </h2>
           <p className="mt-4 text-xl text-gray-300">
-            Cancel anytime. No hidden fees.
+            Surround yourself with motivated peers, and watch your fitness
+            journey take off as you learn insights and tips from professionals.
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 justify-center items-center lg:items-stretch w-full">
@@ -134,6 +135,9 @@ export default async function PricingComponent() {
         <p className="mt-4 text-center text-gray-300">
           Not sure if it's right for you? Join the free server and send me a
           message!
+        </p>
+        <p className="mt-4 text-center text-gray-300">
+          Cancel anytime. No hidden fees.
         </p>
       </div>
     </div>
