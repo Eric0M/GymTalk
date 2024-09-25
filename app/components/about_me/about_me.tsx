@@ -11,10 +11,10 @@ export default function AboutUs() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/2">
               <Image
-                src="/placeholder.svg?height=300&width=400"
+                src="/Handstand.jpg"
                 alt="About Us Image 1"
                 width={400}
-                height={300}
+                height={400}
                 className="rounded-lg shadow-lg w-full"
               />
             </div>
@@ -34,9 +34,9 @@ export default function AboutUs() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-8">
             <div className="w-full md:w-1/2">
               <Image
-                src="/placeholder.svg?height=400&width=300"
+                src="/Handstand.jpg"
                 alt="About Us Image 2"
-                width={300}
+                width={400}
                 height={400}
                 className="rounded-lg shadow-lg w-full"
               />
@@ -57,10 +57,10 @@ export default function AboutUs() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/2">
               <Image
-                src="/placeholder.svg?height=350&width=350"
+                src="/Handstand.jpg"
                 alt="About Us Image 3"
-                width={350}
-                height={350}
+                width={400}
+                height={400}
                 className="rounded-lg shadow-lg w-full"
               />
             </div>
