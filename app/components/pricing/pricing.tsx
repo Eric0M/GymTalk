@@ -8,20 +8,21 @@ import Link from "next/link";
 export default async function PricingComponent() {
   const session = await getServerSession(options);
   const tiers = [
-    // {
-    //   name: constants[0].Name,
-    //   price: constants[0].Price,
-    //   features: [
-    //     "Access to Premium Server and Resources",
-    //     "Weekly Newsletter",
-    //     "Meet other like-minded people that share similar goals",
-    //   ],
-    //   testLink:
-    //     constants[0].TestLink + "?prefilled_email=" + session?.user?.email,
-    // },
     {
       name: constants[0].Name,
       price: constants[0].Price,
+      features: [
+        "Access to Premium Server and Resources",
+        "Weekly Newsletter",
+        "Meet other like-minded people that share similar goals",
+      ],
+      testLink:
+        constants[0].TestLink + "?prefilled_email=" + session?.user?.email,
+      buttonText: "I'll Upgrade Later",
+    },
+    {
+      name: constants[1].Name,
+      price: constants[1].Price,
       features: [
         "Weekly small group discussions lead by Eric with others at similar skill levels",
         "Access to Premium Server and Resources",
@@ -30,9 +31,11 @@ export default async function PricingComponent() {
         "Video database with in depth tutorials and exercise form guides",
         "Access to all past recorded group discussions",
       ],
-      popular: false,
+      popular: true,
       testLink:
-        constants[0].TestLink + "?prefilled_email=" + session?.user?.email,
+        constants[1].TestLink + "?prefilled_email=" + session?.user?.email,
+
+      buttonText: "Get Started",
     },
     // {
     //   name: constants[2].Name,
@@ -52,10 +55,11 @@ export default async function PricingComponent() {
     <div className="min-h-screen bg-black text-white pb-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl">
-            Upgrade to GymTalk+
+          <h2 className="text-3xl font-extrabold sm:text-5xl lg:text-5xl">
+            Upgrade to <span className="text-yellow-400">GymTalk+</span>
           </h2>
-          <p className="mt-4 text-xl text-gray-300">
+
+          <p className="mt-4 text-xl text-gray-300 lg:px-40 md:px-20 sm:px-10">
             Surround yourself with motivated peers, and watch your fitness
             journey take off as you learn insights and tips from professionals.
           </p>
@@ -81,19 +85,32 @@ export default async function PricingComponent() {
                     tier.popular ? "text-yellow-400" : ""
                   }`}
                 ></h3>
-                <p className="mt-4 text-4xl font-extrabold">
-                  ${tier.price}
-                  <span className="text-xl font-normal text-gray-300">
-                    /month
-                  </span>
-                </p>
+                {tier.popular && (
+                  <p className="mt-4 text-4xl font-extrabold">
+                    ${tier.price}
+                    <span className="text-xl font-normal text-gray-300">
+                      /month
+                    </span>
+                  </p>
+                )}
+                {!tier.popular && (
+                  <p className="mt-4 text-4xl font-extrabold">Free Server</p>
+                )}
                 <ul className="mt-6 space-y-4">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start">
-                      <Check className="flex-shrink-0 w-5 h-5 text-indigo-400" />
-                      <span className="ml-3">{feature}</span>
-                    </li>
-                  ))}
+                  {tier.popular &&
+                    tier.features.map((feature) => (
+                      <li key={feature} className="flex items-start">
+                        <Check className="flex-shrink-0 w-5 h-5 text-yellow-400" />
+                        <span className="ml-3">{feature}</span>
+                      </li>
+                    ))}
+                  {!tier.popular &&
+                    tier.features.map((feature) => (
+                      <li key={feature} className="flex items-start">
+                        <Check className="flex-shrink-0 w-5 h-5 text-indigo-400" />
+                        <span className="ml-3">{feature}</span>
+                      </li>
+                    ))}
                 </ul>
               </div>
               {session ? (
@@ -109,7 +126,7 @@ export default async function PricingComponent() {
                         : "bg-indigo-600 hover:bg-indigo-400 text-white"
                     }`}
                   >
-                    Get Started
+                    {tier.buttonText}
                   </Button>
                 </Link>
               ) : (
@@ -125,7 +142,7 @@ export default async function PricingComponent() {
                         : "bg-indigo-600 hover:bg-indigo-400 text-white"
                     }`}
                   >
-                    Get Started
+                    {tier.buttonText}
                   </Button>
                 </Link>
               )}
