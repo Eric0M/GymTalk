@@ -30,7 +30,7 @@ export default async function PricingComponent() {
         "Become more consistent and develop faster as a group",
         "Unlimited Support and feedback from someone who has been there before",
         "Custom workout plans and training programs",
-        "Video database of hundreds of in depth tutorials and exercise form guides",
+        "Video database with in depth tutorials and exercise form guides",
         "Access to all past recorded group discussions",
       ],
       popular: false,
