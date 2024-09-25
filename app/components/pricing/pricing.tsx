@@ -23,13 +23,10 @@ export default async function PricingComponent() {
       name: constants[1].Name,
       price: constants[1].Price,
       features: [
-        "Weekly/Biweekly small group discussions lead by Eric with others at similar skill levels",
+        "Weekly small group discussions lead by Eric with others at similar skill levels",
         "Access to Premium Server and Resources",
-        "Weekly Newsletter",
-        "Meet other like-minded people that share similar goals",
-        "Become more consistent and develop faster as a group",
+        "Meet other like-minded people that share similar goals and develop faster as a group",
         "Unlimited Support and feedback from someone who has been there before",
-        "Custom workout plans and training programs",
         "Video database with in depth tutorials and exercise form guides",
         "Access to all past recorded group discussions",
       ],
@@ -66,7 +63,7 @@ export default async function PricingComponent() {
           {tiers.map((tier, index) => (
             <div
               key={tier.name}
-              className={`bg-gray-800 rounded-2xl shadow-xl p-8 w-full max-w-sm lg:w-auto lg:flex-1 flex flex-col relative ${
+              className={`bg-gray-800 rounded-2xl shadow-xl p-8 w-full max-w-lg lg:w-auto lg:flex-1 flex flex-col relative ${
                 tier.popular ? "border-2 border-yellow-400" : ""
               }`}
             >
