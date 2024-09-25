@@ -1,6 +1,6 @@
 export const constants = [
   {
-    TestLink: "https://discord.gg/65Bn7YZj",
+    TestLink: "https://discord.gg/jKeKpWyH",
     priceId: "price_1Q19AeIxXY4kjgHfBYnIX8E2",
     Price: "Free",
     Name: "Free tier",
