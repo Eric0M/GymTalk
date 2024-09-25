@@ -29,6 +29,7 @@ export default async function PricingComponent() {
         "Unlimited Support and feedback from Eric",
         "Video database with in depth tutorials and exercise form guides",
         "Access to all past recorded group discussions",
+        "Plus all the free features",
       ],
       popular: true,
       testLink:
