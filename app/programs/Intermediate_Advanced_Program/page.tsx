@@ -6,6 +6,11 @@ const Intermediate_to_Advanced_Calisthenics_Info = () => {
     <ProductPage
       title="Intermediate to Advanced Calisthenics"
       imageUrl="/Planche.jpg"
+      ft1="H"
+      ft2="D"
+      ft3="F"
+      ft4="g"
+      description="freg"
     />
   );
 };

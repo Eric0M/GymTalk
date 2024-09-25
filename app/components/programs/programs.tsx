@@ -3,35 +3,10 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { options } from "../../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth";
+import { programs } from "@/constants";
 
 export default async function ProgramOptions() {
   const session = await getServerSession(options);
-  const programs = [
-    {
-      image: "/Planche.jpg",
-      title: "Intermediate to Advanced Calisthenics",
-      description:
-        "For athletes who have a solid foundation and looking to take their progress to the next level.",
-      buttonText: "Get Started",
-      href: "/programs/Intermediate_Advanced_Program",
-    },
-    {
-      image: "/Handstand.jpg",
-      title: "Handstand Mastery",
-      description:
-        "For anyone just starting out or advanced athletes looking to improve their strength and technique.",
-      buttonText: "Get Started",
-      href: "/programs/Handstand_Mastery_Program",
-    },
-    {
-      image: "/Front_Lever.PNG",
-      title: "All you need to know about Calisthenics",
-      description:
-        "This is the perfect all inclusive program for anyone wanting to get started or improve at calisthenics.",
-      buttonText: "Get Started",
-      href: "/programs/Calisthenics_Basics_Program",
-    },
-  ];
 
   return (
     <section className="bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
@@ -55,25 +30,25 @@ export default async function ProgramOptions() {
               <p className="text-center mb-4 text-gray-400">
                 {program.description}
               </p>
-              {session ? (
-                <Link href={program.href}>
-                  <Button
-                    variant="secondary"
-                    className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
-                  >
-                    {program.buttonText}
-                  </Button>
-                </Link>
-              ) : (
-                <Link href="/api/auth/signin">
-                  <Button
-                    variant="secondary"
-                    className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
-                  >
-                    {program.buttonText}
-                  </Button>
-                </Link>
-              )}
+              {/* {session ? ( */}
+              <Link href={program.href}>
+                <Button
+                  variant="secondary"
+                  className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
+                >
+                  {program.buttonText}
+                </Button>
+              </Link>
+              {/* ) : ( */}
+              <Link href="/api/auth/signin">
+                <Button
+                  variant="secondary"
+                  className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
+                >
+                  {program.buttonText}
+                </Button>
+              </Link>
+              {/* )} */}
             </div>
           ))}
         </div>
