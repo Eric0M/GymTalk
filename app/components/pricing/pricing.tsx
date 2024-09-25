@@ -75,9 +75,7 @@ export default async function PricingComponent() {
                   className={`text-2xl font-bold ${
                     tier.popular ? "text-yellow-400" : ""
                   }`}
-                >
-                  {tier.name}
-                </h3>
+                ></h3>
                 <p className="mt-4 text-4xl font-extrabold">
                   ${tier.price}
                   <span className="text-xl font-normal text-gray-300">
@@ -129,6 +127,10 @@ export default async function PricingComponent() {
             </div>
           ))}
         </div>
+        <p className="mt-4 text-center text-gray-300">
+          Not sure if it's right for you? Join the free server and send me a
+          message!
+        </p>
       </div>
     </div>
   );

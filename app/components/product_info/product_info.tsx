@@ -40,25 +40,25 @@ export default async function productPage({
           rel="noopener noreferrer"
           className="w-full"
         >
-          <Button className="w-full max-w-xs mx-auto bg-white text-black hover:bg-gray-200 text-lg py-6">
+          <Button className="w-full max-w-xs mx-auto bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6">
             Buy Now
           </Button>
         </Link>
         <ul className="space-y-2 text-left max-w-md mx-auto">
           <li className="flex items-center">
-            <Check className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
+            <Check className="mr-2 h-5 w-5 text-indigo-600 flex-shrink-0" />
             <span>High-resolution OLED display for crisp visuals</span>
           </li>
           <li className="flex items-center">
-            <Check className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
+            <Check className="mr-2 h-5 w-5 text-indigo-600 flex-shrink-0" />
             <span>24/7 heart rate monitoring with health insights</span>
           </li>
           <li className="flex items-center">
-            <Check className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
+            <Check className="mr-2 h-5 w-5 text-indigo-600 flex-shrink-0" />
             <span>Water-resistant up to 50 meters for worry-free use</span>
           </li>
           <li className="flex items-center">
-            <Check className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
+            <Check className="mr-2 h-5 w-5 text-indigo-600 flex-shrink-0" />
             <span>Impressive 7-day battery life on a single charge</span>
           </li>
         </ul>
