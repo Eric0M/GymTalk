@@ -16,8 +16,7 @@ export default async function PricingComponent() {
         "Weekly Newsletter",
         "Meet other like-minded people that share similar goals",
       ],
-      testLink:
-        constants[0].TestLink + "?prefilled_email=" + session?.user?.email,
+      testLink: constants[0].TestLink,
       buttonText: "I'll Upgrade Later",
     },
     {
