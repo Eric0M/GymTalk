@@ -19,7 +19,7 @@ export default async function ProgramOptions() {
       image: "/Handstand.jpg",
       title: "Handstand Mastery",
       description:
-        "For people both just starting out or advanced athletes looking to improve their handstand strength and technique.",
+        "For anyone just starting out or advanced athletes looking to improve their strength and technique.",
       buttonText: "Get Started",
       href: "/programs/Handstand_Mastery_Program",
     },
