@@ -9,7 +9,6 @@ const Intermediate_to_Advanced_Calisthenics_Info = () => {
       ft1="H"
       ft2="D"
       ft3="F"
-      ft4="g"
       description="freg"
     />
   );

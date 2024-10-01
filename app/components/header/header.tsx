@@ -1,6 +1,5 @@
 import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
-
 import Link from "next/link";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
 
@@ -13,16 +12,17 @@ const navItems = [
 
 export default async function Header() {
   const session = await getServerSession(options);
+
   return (
     <header className="bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-indigo-400">
+            <Link href="/" className="text-2xl font-bold text-indigo-600">
               GymTalk
             </Link>
           </div>
-          <nav className="hidden md:flex flex-grow justify-center items-center">
+          <nav className="hidden md:flex flex-grow justify-center">
             <div className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
@@ -35,17 +35,17 @@ export default async function Header() {
               ))}
             </div>
           </nav>
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
             {session ? (
               <>
                 <Link
-                  href={"/profile"}
+                  href="/profile"
                   className="text-gray-500 hover:text-white"
                 >
-                  Profile{" "}
+                  Profile
                 </Link>
                 <Link
-                  href={"/api/auth/signout?callbackUrl=/"}
+                  href="/api/auth/signout?callbackUrl=/"
                   className="text-gray-500 hover:text-white"
                 >
                   Logout
@@ -54,7 +54,7 @@ export default async function Header() {
             ) : (
               <Link
                 href="/api/auth/signin"
-                className={`text-gray-500 hover:text-white `}
+                className="text-gray-500 hover:text-white"
               >
                 Login
               </Link>

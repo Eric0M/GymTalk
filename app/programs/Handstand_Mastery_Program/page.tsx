@@ -9,7 +9,6 @@ const Handstand_Mastery_Program_Info = () => {
       ft1="H"
       ft2="D"
       ft3="F"
-      ft4="g"
       description="freg"
     />
   );
