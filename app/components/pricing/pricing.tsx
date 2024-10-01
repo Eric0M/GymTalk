@@ -113,39 +113,39 @@ export default async function PricingComponent() {
                     ))}
                 </ul>
               </div>
-              {session ? (
-                <Link
-                  href={tier.testLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {/* {session ? ( */}
+              <Link
+                href={tier.testLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  className={`mt-8 w-full ${
+                    tier.popular
+                      ? "bg-yellow-400 hover:bg-yellow-300 text-black"
+                      : "bg-indigo-600 hover:bg-indigo-400 text-white"
+                  }`}
                 >
-                  <Button
-                    className={`mt-8 w-full ${
-                      tier.popular
-                        ? "bg-yellow-400 hover:bg-yellow-300 text-black"
-                        : "bg-indigo-600 hover:bg-indigo-400 text-white"
-                    }`}
-                  >
-                    {tier.buttonText}
-                  </Button>
-                </Link>
-              ) : (
-                <Link
-                  href="/api/auth/signin"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {tier.buttonText}
+                </Button>
+              </Link>
+              {/* ) : ( */}
+              <Link
+                href="/api/auth/signin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  className={`mt-8 w-full ${
+                    tier.popular
+                      ? "bg-yellow-400 hover:bg-yellow-300 text-black"
+                      : "bg-indigo-600 hover:bg-indigo-400 text-white"
+                  }`}
                 >
-                  <Button
-                    className={`mt-8 w-full ${
-                      tier.popular
-                        ? "bg-yellow-400 hover:bg-yellow-300 text-black"
-                        : "bg-indigo-600 hover:bg-indigo-400 text-white"
-                    }`}
-                  >
-                    {tier.buttonText}
-                  </Button>
-                </Link>
-              )}
+                  {tier.buttonText}
+                </Button>
+              </Link>
+              {/* )} */}
             </div>
           ))}
         </div>
