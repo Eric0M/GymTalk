@@ -1,16 +1,14 @@
 export const constants = [
   {
     TestLink: "https://discord.gg/jKeKpWyH",
-    priceId: "price_1Q19AeIxXY4kjgHfBYnIX8E2",
     Price: "Free",
     Name: "Free tier",
   },
   {
     TestLink:
       process.env.NODE_ENV === "development"
-        ? "https://buy.stripe.com/bIY9E2dQF2wBcSs28c"
-        : "https://buy.stripe.com/bIY9E2dQF2wBcSs28c",
-    // : "https://buy.stripe.com/14k17wh2R8UZ6u47su",
+        ? "https://buy.stripe.com/14k17wh2R8UZ6u47su"
+        : "https://buy.stripe.com/14k17wh2R8UZ6u47su",
     priceId: "price_1Q19AeIxXY4kjgHfBYnIX8E2",
     Price: 24.99,
     Name: "GymTalk+",

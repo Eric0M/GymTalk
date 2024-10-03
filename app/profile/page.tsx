@@ -17,9 +17,6 @@ import Link from "next/link";
 const profile = async () => {
   const session = await getServerSession(options);
 
-  if (!session) {
-    redirect("/api/auth/signin?callbackUrl=/api/auth/signin");
-  }
   const stripeBillingUrl =
     "https://billing.stripe.com/p/login/test_28o6pn5Am4rp9t64gg";
 

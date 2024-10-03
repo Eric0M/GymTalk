@@ -4,6 +4,8 @@ import Link from "next/link";
 import { options } from "../../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth";
 import { programs } from "@/constants";
+import { getAuth } from "firebase/auth";
+import { initFirebase } from "@/firebase";
 
 export default async function ProgramOptions() {
   const session = await getServerSession(options);
@@ -30,7 +32,6 @@ export default async function ProgramOptions() {
               <p className="text-center mb-4 text-gray-400">
                 {program.description}
               </p>
-              {/* {session ? ( */}
               <Link href={program.href}>
                 <Button
                   variant="secondary"
@@ -39,16 +40,6 @@ export default async function ProgramOptions() {
                   {program.buttonText}
                 </Button>
               </Link>
-              {/* ) : ( */}
-              <Link href="/api/auth/signin">
-                <Button
-                  variant="secondary"
-                  className="w-auto bg-indigo-600 text-white hover:bg-indigo-400 rounded-full"
-                >
-                  {program.buttonText}
-                </Button>
-              </Link>
-              {/* )} */}
             </div>
           ))}
         </div>

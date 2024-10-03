@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Header from "./components/header/header";
+import FirebaseHeader from "./components/firebase_header/header";
 import Footer from "./components/footer/footer";
 import AuthProvider from "@/components/AuthProvider";
 import { Session } from "next-auth";
@@ -30,7 +31,7 @@ export default function RootLayout({
       <link rel="icon" href="/icon.PNG" />
       <body className={inter.className}>
         <AuthProvider>
-          <Header />
+          <FirebaseHeader />
           {children}
 
           <Footer />
