@@ -60,7 +60,6 @@ export default async function Header() {
               </Link>
             )}
           </div>
-          <MobileMenu navItems={navItems} />
         </div>
       </div>
     </header>
