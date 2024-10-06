@@ -7,8 +7,9 @@ export const constants = [
   {
     TestLink:
       process.env.NODE_ENV === "development"
-        ? "https://buy.stripe.com/14k17wh2R8UZ6u47su"
-        : "https://buy.stripe.com/14k17wh2R8UZ6u47su",
+        ? "https://buy.stripe.com/test_14k8zJc0MdKI7CM289"
+        : "https://buy.stripe.com/test_14k8zJc0MdKI7CM289",
+    // : "https://buy.stripe.com/14k17wh2R8UZ6u47su",
     priceId: "price_1Q19AeIxXY4kjgHfBYnIX8E2",
     Price: 24.99,
     Name: "GymTalk+",
@@ -52,6 +53,16 @@ export const programs = [
 ];
 
 export const beginnerCalisthenics = {
+  ft1: "Full in-depth workout program that I used to help you accelerate your training right away!",
+  ft2: "Learn the intricacies of calisthenics and how to structure and build your own program based on your goals and fitness level!",
+  ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",
+};
+export const handstandMastery = {
+  ft1: "Full in-depth workout program that I used to help you accelerate your training right away!",
+  ft2: "Learn the intricacies of calisthenics and how to structure and build your own program based on your goals and fitness level!",
+  ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",
+};
+export const weightedCalisthenics = {
   ft1: "Full in-depth workout program that I used to help you accelerate your training right away!",
   ft2: "Learn the intricacies of calisthenics and how to structure and build your own program based on your goals and fitness level!",
   ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",

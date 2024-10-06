@@ -37,18 +37,6 @@ export default async function PricingComponent() {
 
       buttonText: "Get Started",
     },
-    // {
-    //   name: constants[2].Name,
-    //   price: constants[2].Price,
-    //   features: [
-    //     "All Pro features",
-    //     "1 on 1 coaching sessions and discussions",
-    //     "Unlimited Support and feedback from Eric",
-    //     "Custom workout plans and training programs",
-    //   ],
-    //   testLink:
-    //     constants[2].TestLink + "?prefilled_email=" + session?.user?.email,
-    // },
   ];
 
   return (

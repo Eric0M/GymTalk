@@ -1,5 +1,6 @@
 import React from "react";
 import ProductPage from "@/app/components/product_info/product_info";
+import { handstandMastery } from "@/constants";
 
 const Handstand_Mastery_Program_Info = () => {
   return (
@@ -10,6 +11,7 @@ const Handstand_Mastery_Program_Info = () => {
       ft2="D"
       ft3="F"
       description="freg"
+      detail={handstandMastery}
     />
   );
 };
