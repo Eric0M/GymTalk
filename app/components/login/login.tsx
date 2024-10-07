@@ -1,95 +1,53 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { initFirebase } from "@/firebase";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
 
-export default function LoginScreen() {
-  // TODO: Add google login
-  // const { data: session } = useSession();
-  // const router = useRouter();
+export default function Component() {
+  const router = useRouter();
+  const signIn = async () => {
+    const app = initFirebase();
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
 
-  // if (session) {
-  //   router.replace("/profile");
-  //   return null;
-  // }
+    if (user) {
+      router.push("/");
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-zinc-900 text-white">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold">Login</CardTitle>
-          <CardDescription className="text-zinc-400">
-            Enter your credentials to access your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <form className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-zinc-200">
-                Email
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-                className="bg-zinc-800 border-zinc-700 text-white"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-zinc-200">
-                Password
-              </Label>
-              <Input
-                id="password"
-                type="password"
-                required
-                className="bg-zinc-800 border-zinc-700 text-white"
-              />
-            </div>
-            <Button className="w-full bg-indigo-600 text-white hover:bg-indigo-400">
-              Log in
-            </Button>
-          </form>
-          {/* <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <Separator className="w-full" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-zinc-900 px-2 text-zinc-400">Or</span>
-            </div>
-          </div>
-          <Button
-            variant="outline"
-            className="w-full bg-white text-black hover:bg-zinc-200 hover:text-black"
-            onClick={() => signIn("google")}
-          >
-            <FcGoogle className="mr-2 h-4 w-4" />
-            Continue with Google
-          </Button> */}
-        </CardContent>
-        <CardFooter className="flex justify-center">
-          <p className="text-sm text-zinc-400">
-            Don't have an account?{" "}
-            <a
-              href="#"
-              className="text-indigo-400 hover:underline hover:text-indigo-200"
-              onClick={() => {
-                window.location.href = "/register";
-              }}
-            >
-              Sign up
-            </a>
-          </p>
-        </CardFooter>
-      </Card>
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="p-8 rounded-lg shadow-lg bg-gray-900 w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center mb-6 text-indigo-400">
+          Welcome Back
+        </h1>
+        <p className="text-indigo-300 text-center mb-8">
+          Sign in to access your account
+        </p>
+        <Button
+          onClick={signIn}
+          className="w-full bg-indigo-600 hover:bg-indigo-400 text-white font-bold py-3 rounded-lg transition duration-300 flex items-center justify-center"
+        >
+          <FcGoogle className="mr-2 text-2xl" />
+          Sign in with Google
+        </Button>
+        <p className="mt-6 text-sm text-center text-gray-400">
+          By signing in, you agree to our
+          <a href="#" className="text-indigo-400 hover:underline">
+            {" "}
+            Terms of Service
+          </a>{" "}
+          and
+          <a href="#" className="text-indigo-400 hover:underline">
+            {" "}
+            Privacy Policy
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

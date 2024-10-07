@@ -1,12 +1,32 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { constants } from "@/constants";
 import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
 import Link from "next/link";
+import { initFirebase } from "@/firebase";
+import { getAuth } from "firebase/auth";
+import { useRouter } from "next/navigation";
+import { getCheckoutUrl } from "./stripePayment";
 
 export default async function PricingComponent() {
-  const session = await getServerSession(options);
+  const app = initFirebase();
+  const auth = getAuth(app);
+  const user = auth.currentUser;
+  const router = useRouter();
+
+  const handleCheckout = async () => {
+    const priceID = "price_1Q7IPLIxXY4kjgHfJwT6tf2g";
+    const url = await getCheckoutUrl(app, priceID);
+
+    if (user) {
+      window.open(url, "_blank");
+    } else {
+      router.push("/login");
+    }
+  };
+
   const tiers = [
     {
       name: constants[0].Name,
@@ -32,8 +52,7 @@ export default async function PricingComponent() {
         "Plus all the free features",
       ],
       popular: true,
-      testLink:
-        constants[1].TestLink + "?prefilled_email=" + session?.user?.email,
+      testLink: constants[1].TestLink + "?prefilled_email=" + user?.email,
 
       buttonText: "Get Started",
     },
@@ -101,39 +120,18 @@ export default async function PricingComponent() {
                     ))}
                 </ul>
               </div>
-              {/* {session ? ( */}
-              <Link
-                href={tier.testLink}
-                target="_blank"
+
+              <Button
+                onClick={() => handleCheckout()}
+                className={`mt-8 w-full ${
+                  tier.popular
+                    ? "bg-yellow-400 hover:bg-yellow-300 text-black"
+                    : "bg-indigo-600 hover:bg-indigo-400 text-white"
+                }`}
                 rel="noopener noreferrer"
               >
-                <Button
-                  className={`mt-8 w-full ${
-                    tier.popular
-                      ? "bg-yellow-400 hover:bg-yellow-300 text-black"
-                      : "bg-indigo-600 hover:bg-indigo-400 text-white"
-                  }`}
-                >
-                  {tier.buttonText}
-                </Button>
-              </Link>
-              {/* ) : ( */}
-              <Link
-                href="/api/auth/signin"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  className={`mt-8 w-full ${
-                    tier.popular
-                      ? "bg-yellow-400 hover:bg-yellow-300 text-black"
-                      : "bg-indigo-600 hover:bg-indigo-400 text-white"
-                  }`}
-                >
-                  {tier.buttonText}
-                </Button>
-              </Link>
-              {/* )} */}
+                {tier.buttonText}
+              </Button>
             </div>
           ))}
         </div>
