@@ -12,6 +12,7 @@ const Handstand_Mastery_Program_Info = () => {
       ft3="F"
       description="freg"
       detail={handstandMastery}
+      priceId="price_1Q7IPLIxXY4kjgHfJwT6tf2g"
     />
   );
 };

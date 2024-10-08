@@ -1,5 +1,6 @@
 import React from "react";
 import ProductPage from "@/app/components/product_info/product_info";
+import { beginnerCalisthenics } from "@/constants";
 
 const Intermediate_to_Advanced_Calisthenics_Info = () => {
   return (
@@ -10,6 +11,8 @@ const Intermediate_to_Advanced_Calisthenics_Info = () => {
       ft2="D"
       ft3="F"
       description="freg"
+      detail={beginnerCalisthenics}
+      priceId="price_1Q7IPLIxXY4kjgHfJwT6tf2g"
     />
   );
 };

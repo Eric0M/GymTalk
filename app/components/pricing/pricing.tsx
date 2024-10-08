@@ -2,19 +2,14 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { constants } from "@/constants";
-import { getServerSession } from "next-auth";
-import { options } from "../../api/auth/[...nextauth]/options";
-import Link from "next/link";
 import { initFirebase } from "@/firebase";
 import { getAuth } from "firebase/auth";
-import { useRouter } from "next/navigation";
 import { getCheckoutUrl } from "./stripePayment";
 
 export default async function PricingComponent() {
   const app = initFirebase();
   const auth = getAuth(app);
   const user = auth.currentUser;
-  const router = useRouter();
 
   const handleCheckout = async () => {
     const priceID = "price_1Q7IPLIxXY4kjgHfJwT6tf2g";
@@ -23,7 +18,7 @@ export default async function PricingComponent() {
     if (user) {
       window.open(url, "_blank");
     } else {
-      router.push("/login");
+      window.location.href = "/login";
     }
   };
 

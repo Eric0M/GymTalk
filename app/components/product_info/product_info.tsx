@@ -1,13 +1,7 @@
 "use client";
-
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check, Dumbbell } from "lucide-react";
-import Link from "next/link";
-import { constants } from "@/constants";
-import { FirebaseAuth } from "../product_firebase/product_firebase";
-import { User } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import {
   getAuth,
@@ -17,6 +11,7 @@ import {
 } from "firebase/auth";
 import { initFirebase } from "@/firebase";
 import Cookies from "js-cookie";
+import { getCheckoutUrl } from "../pricing/stripePayment";
 
 interface ProductPageProps {
   title?: string;
@@ -27,6 +22,7 @@ interface ProductPageProps {
   description?: string;
   price?: string;
   detail?: Record<string, string>;
+  priceId?: string;
 }
 
 export default function ProductPage({
@@ -38,75 +34,22 @@ export default function ProductPage({
   ft3,
   price,
   detail,
+  priceId,
 }: ProductPageProps) {
-  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
+  const app = initFirebase();
+  const auth = getAuth(app);
+  const user = auth.currentUser;
 
-  useEffect(() => {
-    const app = initFirebase();
-    const auth = getAuth(app);
-    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
-      setUser(currentUser);
-      if (currentUser) {
-        Cookies.set("session", "true", { expires: 7 });
-        localStorage.setItem(
-          "userData",
-          JSON.stringify({
-            uid: currentUser.uid,
-            displayName: currentUser.displayName,
-            email: currentUser.email,
-            photoURL: currentUser.photoURL,
-          })
-        );
-      } else {
-        Cookies.remove("session");
-        localStorage.removeItem("userData");
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+  async function handleCheckout(priceID: string) {
+    const url = await getCheckoutUrl(app, priceID);
 
-  const handleAuth = async () => {
-    const app = initFirebase();
-    const auth = getAuth(app);
     if (user) {
-      await signOut(auth);
-      Cookies.remove("session");
-      localStorage.removeItem("userData");
-      router.push("/");
+      window.open(url, "_blank");
     } else {
-      const provider = new GoogleAuthProvider();
-      try {
-        const result = await signInWithPopup(auth, provider);
-        if (result.user) {
-          Cookies.set("session", "true", { expires: 7 });
-          localStorage.setItem(
-            "userData",
-            JSON.stringify({
-              uid: result.user.uid,
-              displayName: result.user.displayName,
-              email: result.user.email,
-              photoURL: result.user.photoURL,
-            })
-          );
-          router.push("/firebase_profile");
-        }
-      } catch (error) {
-        console.error("Error during sign in:", error);
-      }
+      router.push("/login");
     }
-  };
-
-  const handleBuyNow = () => {
-    if (!user) {
-      handleAuth();
-    } else {
-      window.open(
-        `${constants[2].TestLink}?prefilled_email=${user.email || ""}`,
-        "_blank"
-      );
-    }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
@@ -126,7 +69,7 @@ export default function ProductPage({
         </h1>
         <Button
           className="w-full max-w-xs mx-auto bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6"
-          onClick={handleBuyNow}
+          onClick={() => priceId && handleCheckout(priceId)}
         >
           Buy Now {price}
         </Button>

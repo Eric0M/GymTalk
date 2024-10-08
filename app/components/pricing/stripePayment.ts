@@ -8,7 +8,6 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
-import { useRouter } from "next/navigation";
 
 export const getCheckoutUrl = async (
   app: FirebaseApp,
