@@ -10,8 +10,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { initFirebase } from "@/firebase";
-import Cookies from "js-cookie";
-import { getCheckoutUrl } from "../pricing/stripePayment";
+import { handleCheckout } from "@/checkout";
 
 interface ProductPageProps {
   title?: string;
@@ -40,16 +39,6 @@ export default function ProductPage({
   const app = initFirebase();
   const auth = getAuth(app);
   const user = auth.currentUser;
-
-  async function handleCheckout(priceID: string) {
-    const url = await getCheckoutUrl(app, priceID);
-
-    if (user) {
-      window.open(url, "_blank");
-    } else {
-      router.push("/login");
-    }
-  }
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">

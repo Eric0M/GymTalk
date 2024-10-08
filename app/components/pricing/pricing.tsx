@@ -4,23 +4,23 @@ import { Check } from "lucide-react";
 import { constants } from "@/constants";
 import { initFirebase } from "@/firebase";
 import { getAuth } from "firebase/auth";
-import { getCheckoutUrl } from "./stripePayment";
+import { handleCheckout } from "@/checkout";
 
 export default async function PricingComponent() {
   const app = initFirebase();
   const auth = getAuth(app);
   const user = auth.currentUser;
 
-  const handleCheckout = async () => {
-    const priceID = "price_1Q7IPLIxXY4kjgHfJwT6tf2g";
-    const url = await getCheckoutUrl(app, priceID);
+  // const handleCheckout = async () => {
+  //   const priceID = "price_1Q7IPLIxXY4kjgHfJwT6tf2g";
+  //   const url = await getCheckoutUrl(app, priceID);
 
-    if (user) {
-      window.open(url, "_blank");
-    } else {
-      window.location.href = "/login";
-    }
-  };
+  //   if (user) {
+  //     window.open(url, "_blank");
+  //   } else {
+  //     window.location.href = "/login";
+  //   }
+  // };
 
   const tiers = [
     {
@@ -117,7 +117,7 @@ export default async function PricingComponent() {
               </div>
 
               <Button
-                onClick={() => handleCheckout()}
+                onClick={() => handleCheckout("price_1Q7IPLIxXY4kjgHfJwT6tf2g")}
                 className={`mt-8 w-full ${
                   tier.popular
                     ? "bg-yellow-400 hover:bg-yellow-300 text-black"
