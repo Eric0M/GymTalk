@@ -1,7 +1,8 @@
 "use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Check, Dumbbell } from "lucide-react";
+import { Check, Dot, ChevronDown, ChevronUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 import {
   getAuth,
@@ -11,6 +12,7 @@ import {
 } from "firebase/auth";
 import { initFirebase } from "@/firebase";
 import { handleCheckout } from "@/checkout";
+import { useState } from "react";
 
 interface ProductPageProps {
   title?: string;
@@ -40,56 +42,104 @@ export default function ProductPage({
   const auth = getAuth(app);
   const user = auth.currentUser;
 
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl mx-auto space-y-6 text-center px-4">
-        <div className="relative w-full max-w-sm mx-auto aspect-square rounded-lg overflow-hidden">
-          <Image
-            src={imageUrl as string}
-            alt={`${title} Image`}
-            width={400}
-            height={400}
-            className="object-cover hover:scale-105 transition-transform duration-300"
-            priority
-          />
+      <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+        <div className="w-full md:w-1/2">
+          <div className="relative w-full aspect-square rounded-lg overflow-hidden">
+            <Image
+              src={imageUrl as string}
+              alt={`${title} Image`}
+              layout="fill"
+              objectFit="cover"
+              className="hover:scale-105 transition-transform duration-300"
+              priority
+            />
+          </div>
         </div>
-        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold pb-4">
-          {title}
-        </h1>
-        <Button
-          className="w-full max-w-xs mx-auto bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6"
-          onClick={() => priceId && handleCheckout(priceId)}
-        >
-          Buy Now {price}
-        </Button>
-        <ul className="space-y-2 text-left max-w-md mx-auto">
-          <li className="flex items-center">
-            <Dumbbell className="mr-2 h-5 w-5 text-indigo-600 flex-shrink-0" />
-            <span>{ft1}</span>
-          </li>
-          <li className="flex items-center">
-            <Dumbbell className="mr-2 h-5 w-5 text-indigo-600 flex-shrink-0" />
-            <span>{ft2}</span>
-          </li>
-          <li className="flex items-center">
-            <Dumbbell className="mr-2 h-5 w-5 text-indigo-600 flex-shrink-0" />
-            <span>{ft3}</span>
-          </li>
-        </ul>
-        <h3 className="text-xl font-semibold">Description</h3>
-        <p className="text-gray-300 max-w-prose mx-auto text-lg">
-          {description}
-        </p>
-        <h3 className="text-xl font-semibold">What's Included</h3>
-        {detail &&
-          Object.values(detail).map((benefit, index) => (
-            <ul key={index} className="space-y-2 text-left max-w-md mx-auto">
-              <li className="flex items-center">
-                <Check className="mr-2 h-5 w-5 text-white flex-shrink-0" />
-                <span>{benefit}</span>
-              </li>
-            </ul>
-          ))}
+        <div className="w-full md:w-1/2 space-y-6 flex flex-col items-center">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">
+            {title}
+          </h1>
+          <Button
+            className="w-full max-w-xs bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6"
+            onClick={() => priceId && handleCheckout(priceId)}
+          >
+            Buy Now {price}
+          </Button>
+          <div className="w-full h-px bg-gray-800"></div>
+          <ul className="space-y-2 w-full">
+            <li className="flex items-center">
+              <Dot className="mr-2 h-8 w-8 text-white flex-shrink-0" />
+              <span>{ft1}</span>
+            </li>
+            <li className="flex items-center">
+              <Dot className="mr-2 h-8 w-8 text-white flex-shrink-0" />
+              <span>{ft2}</span>
+            </li>
+            <li className="flex items-center">
+              <Dot className="mr-2 h-8 w-8 text-white flex-shrink-0" />
+              <span>{ft3}</span>
+            </li>
+          </ul>
+          <div className="w-full h-px bg-gray-800"></div>
+          <div className="w-full">
+            <button
+              className="flex justify-between items-center w-full text-xl font-semibold"
+              onClick={() => setIsDescriptionOpen(!isDescriptionOpen)}
+              aria-expanded={isDescriptionOpen}
+              aria-controls="description-content"
+            >
+              <span>Description</span>
+              {isDescriptionOpen ? (
+                <ChevronUp className="h-6 w-6" />
+              ) : (
+                <ChevronDown className="h-6 w-6" />
+              )}
+            </button>
+            {isDescriptionOpen && (
+              <p
+                id="description-content"
+                className="text-gray-300 text-lg mt-2"
+              >
+                {description}
+              </p>
+            )}
+          </div>
+          <div className="w-full h-px bg-gray-800"></div>
+          <div className="w-full">
+            <button
+              className="flex justify-between items-center w-full text-xl font-semibold"
+              onClick={() => setIsDetailsOpen(!isDetailsOpen)}
+              aria-expanded={isDetailsOpen}
+              aria-controls="details-content"
+            >
+              <span>What's Included</span>
+              {isDetailsOpen ? (
+                <ChevronUp className="h-6 w-6" />
+              ) : (
+                <ChevronDown className="h-6 w-6" />
+              )}
+            </button>
+            {isDetailsOpen && (
+              <div id="details-content" className="mt-2">
+                {detail &&
+                  Object.values(detail).map((benefit, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center space-x-2 mb-2"
+                    >
+                      <Check className="h-5 w-5 text-indigo-400 flex-shrink-0" />
+                      <span>{benefit}</span>
+                    </div>
+                  ))}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

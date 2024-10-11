@@ -13,12 +13,14 @@ export default function AccountPage() {
   const app = initFirebase();
   const auth = getAuth(app);
 
-  const userName = auth.currentUser?.displayName;
-  const email = auth.currentUser?.email;
+  const user = auth.currentUser;
+  if (!user) {
+    window.location.href = "/login";
+  }
 
   return (
     <div className="flex flex-col gap-8">
-      <h1>Welcome, {email}</h1>
+      <h1>Welcome, {user?.displayName}</h1>
     </div>
   );
 }

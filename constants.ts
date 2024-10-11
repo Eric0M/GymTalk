@@ -58,7 +58,7 @@ export const beginnerCalisthenics = {
   ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",
 };
 export const handstandMastery = {
-  ft1: "Full in-depth workout program that I used to help you accelerate your training right away!",
+  ft1: "Step by step instructions of the handstand exercises that got me to where I am today!",
   ft2: "Learn the intricacies of calisthenics and how to structure and build your own program based on your goals and fitness level!",
   ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",
 };

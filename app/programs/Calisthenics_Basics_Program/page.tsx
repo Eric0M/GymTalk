@@ -5,7 +5,7 @@ import { beginnerCalisthenics } from "@/constants";
 const Calisthenics_Basics_Program_Info = () => {
   return (
     <ProductPage
-      title="All you need to know about Calisthenics"
+      title="All you need to know about Calisthenics LIST EXACT SKILLS THAT WILL BE TAUGHT"
       price="$39.99"
       imageUrl="/heroIMG.jpeg"
       ft2="Everything you could possibly need to know to get started with calisthenics!"
