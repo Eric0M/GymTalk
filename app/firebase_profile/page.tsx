@@ -1,6 +1,7 @@
 "use client";
 import { initFirebase } from "@/firebase";
 import { getAuth } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 interface UserData {
   uid: string;
@@ -12,10 +13,11 @@ interface UserData {
 export default function AccountPage() {
   const app = initFirebase();
   const auth = getAuth(app);
+  const router = useRouter();
 
   const user = auth.currentUser;
   if (!user) {
-    window.location.href = "/login";
+    router.push("/login");
   }
 
   return (

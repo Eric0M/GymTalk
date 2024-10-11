@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check, Dot, ChevronDown, ChevronUp } from "lucide-react";
-import { useRouter } from "next/navigation";
 import {
   getAuth,
   signInWithPopup,
@@ -39,7 +38,6 @@ export default function ProductPage({
 }: ProductPageProps) {
   const app = initFirebase();
   const auth = getAuth(app);
-  const user = auth.currentUser;
 
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
