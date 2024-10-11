@@ -56,17 +56,21 @@ export default function ProductPage({
               priority
             />
           </div>
+
+          <div className="mt-8 flex justify-center items-center space-x-4">
+            <Button
+              className="w-full max-w-xs bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6"
+              onClick={() => priceId && handleCheckout(priceId)}
+            >
+              Buy Now {price}
+            </Button>
+          </div>
         </div>
         <div className="w-full md:w-1/2 space-y-6 flex flex-col items-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">
             {title}
           </h1>
-          <Button
-            className="w-full max-w-xs bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6"
-            onClick={() => priceId && handleCheckout(priceId)}
-          >
-            Buy Now {price}
-          </Button>
+
           <div className="w-full h-px bg-gray-800"></div>
           <ul className="space-y-2 w-full">
             <li className="flex items-center">

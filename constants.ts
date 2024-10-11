@@ -56,11 +56,12 @@ export const beginnerCalisthenics = {
   ft1: "Full in-depth workout program that I used to help you accelerate your training right away!",
   ft2: "Learn the intricacies of calisthenics and how to structure and build your own program based on your goals and fitness level!",
   ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",
+  ft4: "Skills you will gain from this program are: Handstand, Handstand Pushup, Front Lever, Muscle Up, Pistol Squat, and some planche Basics",
 };
 export const handstandMastery = {
   ft1: "Step by step instructions of the handstand exercises that got me to where I am today!",
-  ft2: "Learn the intricacies of calisthenics and how to structure and build your own program based on your goals and fitness level!",
-  ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",
+  ft2: "Learn advanced handstand techniques and how to use your strengths to master the one that works for your body!",
+  ft3: "If you want, I will also provide you with direct personal feedback on any videos or exercises to help accelerate your progress even more!",
 };
 export const weightedCalisthenics = {
   ft1: "Full in-depth workout program that I used to help you accelerate your training right away!",
