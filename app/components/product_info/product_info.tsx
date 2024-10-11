@@ -37,7 +37,6 @@ export default function ProductPage({
   detail,
   priceId,
 }: ProductPageProps) {
-  const router = useRouter();
   const app = initFirebase();
   const auth = getAuth(app);
   const user = auth.currentUser;
