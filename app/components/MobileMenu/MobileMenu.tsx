@@ -21,7 +21,7 @@ export function MobileMenu({ navItems, initialSession }: MobileMenuProps) {
   };
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden z-10">
       <button
         onClick={toggleMenu}
         className="text-white focus:outline-none"

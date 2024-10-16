@@ -3,12 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check, Dot, ChevronDown, ChevronUp } from "lucide-react";
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { initFirebase } from "@/firebase";
 import { handleCheckout } from "@/checkout";
 import { useState } from "react";
@@ -57,7 +52,7 @@ export default function ProductPage({
             />
           </div>
 
-          <div className="mt-8 flex justify-center items-center space-x-4">
+          <div className="mt-8 flex flex-col justify-center items-center space-x-4">
             <Button
               className="w-full max-w-xs bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6"
               onClick={() => priceId && handleCheckout(priceId)}

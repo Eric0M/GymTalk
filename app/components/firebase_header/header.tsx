@@ -29,6 +29,8 @@ const baseNavItems: NavItemType[] = [
 ];
 
 export default function Header() {
+  // Can change this logic. It works but ideally no async in client components
+
   const [session, setSession] = useState(false);
   const router = useRouter();
 
@@ -107,7 +109,7 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden md:flex flex-grow justify-center">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-8 ">
               {navItems.map((item) => (
                 <NavItem
                   key={item.href}
