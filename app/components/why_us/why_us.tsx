@@ -27,26 +27,27 @@ export default function Why_us() {
             </div>
             <h3 className="text-xl font-bold">Train Together</h3>
             <p className="text-gray-300 px-4">
-              Meet new people with similar goals. Motivation
+              Meet and train with new people who have the same goals as you.
             </p>
           </div>
           <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-indigo-900 to-indigo-400">
             <div className="bg-white/10 p-3 rounded-full border-4 border-white">
               <NotebookPen className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-xl font-bold">Share Knowledge</h3>
+            <h3 className="text-xl font-bold">Learn from Others</h3>
             <p className="text-gray-300 px-4">
-              Advanced Techniques, recovery, new exercises
+              Discover Advanced Techniques, Maximize Recovery, and get your
+              questions answered!
             </p>
           </div>
           <div className="flex flex-col items-center space-y-4 text-center border-4 rounded-3xl py-12 bg-gradient-to-br from-indigo-900 to-indigo-400">
             <div className="bg-white/10 p-3 rounded-full border-4 border-white">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-xl font-bold">Faster Results</h3>
+            <h3 className="text-xl font-bold">Train Effectively</h3>
             <p className="text-gray-300 px-4">
               Learn what works and what doesn't - less time wasted and more
-              training optimally
+              training optimally.
             </p>
           </div>
           <div className="flex flex-col items-center space-y-4 text-center border-4 bg-gradient-to-br from-indigo-900 to-indigo-400 rounded-3xl py-12">
@@ -55,7 +56,7 @@ export default function Why_us() {
             </div>
             <h3 className="text-xl font-bold">Constant Feedback</h3>
             <p className="text-gray-300 px-4">
-              Get feedback on your technique,
+              Receive constant feedback from our team and the GymTalk community!
             </p>
           </div>
         </div>

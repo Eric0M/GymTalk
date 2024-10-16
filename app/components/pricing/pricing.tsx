@@ -134,9 +134,7 @@ export default async function PricingComponent() {
           Not sure if it's right for you? Join the free server and send me a
           message!
         </p>
-        <p className="mt-4 text-center text-gray-300">
-          Cancel anytime. No hidden fees.
-        </p>
+        <p className="mt-4 text-center text-gray-300">Cancel anytime</p>
       </div>
     </div>
   );

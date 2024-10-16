@@ -1,7 +1,9 @@
 "use client";
 import { initFirebase } from "@/firebase";
+import { getPremiumStatus } from "@/getUserPurchasedStatus";
 import { getAuth } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface UserData {
   uid: string;
@@ -20,9 +22,24 @@ export default function AccountPage() {
     router.push("/login");
   }
 
+  const [isPremium, setIsPremium] = useState(false);
+
+  useEffect(() => {
+    const checkPremium = async () => {
+      const newPremiumStatus = auth.currentUser
+        ? await getPremiumStatus(app)
+        : false;
+      setIsPremium(newPremiumStatus);
+    };
+    checkPremium();
+  }, [app, auth.currentUser?.uid]);
+
+  // const statusPanel = isPremium ? <PremiumPanel /> : <StandardPanel />;
+
   return (
     <div className="flex flex-col gap-8">
       <h1>Welcome, {user?.displayName}</h1>
+      {/* {statusPanel} */}
     </div>
   );
 }
