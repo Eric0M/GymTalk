@@ -5,6 +5,7 @@ import { constants } from "@/constants";
 import { initFirebase } from "@/firebase";
 import { getAuth } from "firebase/auth";
 import { handleCheckout } from "@/stripeSubscriptions";
+import Link from "next/link";
 
 export default function PricingComponent() {
   const app = initFirebase();
@@ -117,7 +118,13 @@ export default function PricingComponent() {
               </div>
 
               <Button
-                onClick={() => handleCheckout("price_1Q7IPLIxXY4kjgHfJwT6tf2g")}
+                onClick={
+                  tier.buttonText === "I'll Upgrade Later"
+                    ? () => {
+                        window.open("https://discord.gg/KEkWKKaVw8", "_blank");
+                      }
+                    : () => handleCheckout("price_1Q7IPLIxXY4kjgHfJwT6tf2g")
+                }
                 className={`mt-8 w-full ${
                   tier.popular
                     ? "bg-yellow-400 hover:bg-yellow-300 text-black"

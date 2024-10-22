@@ -16,6 +16,7 @@ const Calisthenics_Basics_Program_Info = () => {
       "
       detail={beginnerCalisthenics}
       priceId="price_1Q7IPLIxXY4kjgHfJwT6tf2g"
+      success_url={process.env.HANDSTAND_DOC_LINK}
     />
   );
 };

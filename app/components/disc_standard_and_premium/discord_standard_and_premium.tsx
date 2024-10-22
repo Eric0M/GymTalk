@@ -61,7 +61,7 @@ export default function Membership_Tiers() {
             </div>
           </CardContent>
           <CardFooter>
-            <Link href="https://discord.gg/jKeKpWyH" className="w-full">
+            <Link href="https://discord.gg/KEkWKKaVw8" className="w-full">
               <Button className="w-full bg-indigo-600 hover:bg-indigo-400 text-white">
                 Get Started
               </Button>
