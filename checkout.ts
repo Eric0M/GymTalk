@@ -1,4 +1,3 @@
-"use client";
 import { getAuth } from "firebase/auth";
 import { getCheckoutUrl } from "./app/components/pricing/singleStripePayment";
 import { initFirebase } from "./firebase";

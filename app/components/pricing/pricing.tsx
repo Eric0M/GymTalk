@@ -6,7 +6,7 @@ import { initFirebase } from "@/firebase";
 import { getAuth } from "firebase/auth";
 import { handleCheckout } from "@/stripeSubscriptions";
 
-export default async function PricingComponent() {
+export default function PricingComponent() {
   const app = initFirebase();
   const auth = getAuth(app);
   const user = auth.currentUser;
