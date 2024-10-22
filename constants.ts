@@ -7,8 +7,8 @@ export const constants = [
   {
     TestLink:
       process.env.NODE_ENV === "development"
-        ? "https://buy.stripe.com/test_14k5nx6GsfSQ0akdQV"
-        : "https://buy.stripe.com/test_14k5nx6GsfSQ0akdQV",
+        ? "https://buy.stripe.com/test_dR6dU3d4Q7mk9KU4gm"
+        : "https://buy.stripe.com/test_dR6dU3d4Q7mk9KU4gm",
     // : "https://buy.stripe.com/14k17wh2R8UZ6u47su",
     priceId: "price_1Q7IPLIxXY4kjgHfJwT6tf2g",
     Price: 24.99,

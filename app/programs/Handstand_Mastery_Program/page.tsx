@@ -13,7 +13,8 @@ const Handstand_Mastery_Program_Info: React.FC = () => {
       ft3="Video Feedback!"
       description="This all inclusive document focuses on how to properly train for the handstand, giving you a breadth of tailored exercises that are incredibly effective for all skill levels. Not only that, I will also provide you with direct personal feedback to help accelerate your progress even more! "
       detail={handstandMastery}
-      priceId="price_1Q7IPLIxXY4kjgHfJwT6tf2g"
+      priceId="price_1QAYrfIxXY4kjgHfDvE4G6gf"
+      success_url={process.env.Handstand_Doc_Link}
     />
   );
 };

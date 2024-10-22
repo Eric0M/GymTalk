@@ -5,7 +5,7 @@ import { programs } from "@/constants";
 import { getAuth } from "firebase/auth";
 import { initFirebase } from "@/firebase";
 import { useRouter } from "next/navigation";
-import { getCheckoutUrl } from "../pricing/stripePayment";
+import { getCheckoutUrl } from "../pricing/singleStripePayment";
 import Link from "next/link";
 
 export default async function ProgramOptions() {
@@ -14,15 +14,15 @@ export default async function ProgramOptions() {
   const user = auth.currentUser;
   const router = useRouter();
 
-  async function handleCheckout(priceID: string) {
-    const url = await getCheckoutUrl(app, priceID);
+  // async function handleCheckout(priceID: string) {
+  //   const url = await getCheckoutUrl(app, priceID);
 
-    if (user) {
-      window.open(url, "_blank");
-    } else {
-      router.push("/login");
-    }
-  }
+  //   if (user) {
+  //     window.open(url, "_blank");
+  //   } else {
+  //     router.push("/login");
+  //   }
+  // }
 
   return (
     <section className="bg-black text-white py-12 px-4 sm:px-6 lg:px-8">

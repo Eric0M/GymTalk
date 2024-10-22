@@ -18,6 +18,7 @@ interface ProductPageProps {
   price?: string;
   detail?: Record<string, string>;
   priceId?: string;
+  success_url?: string;
 }
 
 export default function ProductPage({
@@ -30,6 +31,7 @@ export default function ProductPage({
   price,
   detail,
   priceId,
+  success_url,
 }: ProductPageProps) {
   const app = initFirebase();
   const auth = getAuth(app);
@@ -55,7 +57,11 @@ export default function ProductPage({
           <div className="mt-8 flex flex-col justify-center items-center space-x-4">
             <Button
               className="w-full max-w-xs bg-indigo-600 text-white hover:bg-indigo-400 text-lg py-6"
-              onClick={() => priceId && handleCheckout(priceId)}
+              onClick={() =>
+                priceId &&
+                success_url &&
+                handleCheckout(priceId, "payment", success_url)
+              }
             >
               Buy Now {price}
             </Button>

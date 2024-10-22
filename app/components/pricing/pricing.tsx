@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 import { constants } from "@/constants";
 import { initFirebase } from "@/firebase";
 import { getAuth } from "firebase/auth";
-import { handleCheckout } from "@/checkout";
+import { handleCheckout } from "@/stripeSubscriptions";
 
 export default async function PricingComponent() {
   const app = initFirebase();

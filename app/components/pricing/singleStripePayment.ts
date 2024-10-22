@@ -1,4 +1,5 @@
 "use client";
+
 import { FirebaseApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import {
@@ -9,9 +10,14 @@ import {
 } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
 
+type CheckoutMode = "payment" | "subscription";
+type success_url = string;
+
 export const getCheckoutUrl = async (
   app: FirebaseApp,
-  priceId: string
+  priceId: string,
+  mode: CheckoutMode,
+  success_url: string
 ): Promise<string> => {
   const auth = getAuth(app);
   const userId = auth.currentUser?.uid;
@@ -31,8 +37,9 @@ export const getCheckoutUrl = async (
 
   const docRef = await addDoc(checkoutSessionRef, {
     price: priceId,
-    success_url: window.location.origin,
+    success_url: success_url,
     cancel_url: window.location.origin,
+    mode: mode,
   });
 
   return new Promise<string>((resolve, reject) => {
