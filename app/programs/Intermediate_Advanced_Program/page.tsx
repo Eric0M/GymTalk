@@ -12,7 +12,7 @@ const Intermediate_to_Advanced_Calisthenics_Info = () => {
       ft3="F"
       description="freg"
       detail={beginnerCalisthenics}
-      priceId="price_1Q7IPLIxXY4kjgHfJwT6tf2g"
+      priceId="price_1QAYrfIxXY4kjgHfDvE4G6gf"
       success_url={process.env.HANDSTAND_DOC_LINK}
     />
   );
