@@ -48,7 +48,7 @@ export const programs = [
     description:
       "For athletes who have a solid foundation and looking to take their progress to the next level.",
     buttonText: "Get Started",
-    href: "/programs/Intermediate_Advanced_Program",
+    href: "/programs/Under_Construction",
   },
 ];
 
@@ -56,7 +56,7 @@ export const beginnerCalisthenics = {
   ft1: "Full in-depth workout program that I used to help you accelerate your training right away!",
   ft2: "Learn the intricacies of calisthenics and how to structure and build your own program based on your goals and fitness level!",
   ft3: "Get step by step instructions on how to effectively train outside the gym too! (Including, diet, recovery, etc.)",
-  ft4: "Skills you will gain from this program are: Handstand, Handstand Pushup, Front Lever, Muscle Up, Pistol Squat, and some planche Basics",
+  ft4: "Skills covered in this program include: Handstand, Handstand Pushup, Front Lever, Muscle Up, Pistol Squat, and some planche Basics",
 };
 export const handstandMastery = {
   ft1: "Step by step instructions of the handstand exercises that got me to where I am today!",

@@ -1,6 +1,4 @@
-import { getServerSession } from "next-auth";
 import React from "react";
-import { options } from "../api/auth/[...nextauth]/options";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,18 +10,27 @@ import {
 } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { initFirebase } from "@/firebase";
+import { getAuth } from "firebase/auth";
 
-const profile = async () => {
-  const session = await getServerSession(options);
-
+export default function Component({
+  userEmail = "user@example.com",
+}: {
+  userEmail?: string;
+}) {
   const stripeBillingUrl =
     "https://billing.stripe.com/p/login/test_28o6pn5Am4rp9t64gg";
+
+  const app = initFirebase();
+  const auth = getAuth(app);
+
+  const user = auth.currentUser;
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-black p-4">
       <Card className="w-full max-w-md bg-gray-900 text-white">
         <CardHeader>
-          <CardTitle>Profile</CardTitle>
+          <CardTitle>Hi, {user?.displayName}</CardTitle>
           <CardDescription className="text-gray-400">
             Manage your account
           </CardDescription>
@@ -34,9 +41,11 @@ const profile = async () => {
             button below.
           </p>
         </CardContent>
+        {/* CHANGE THE STRIPE BILLING LINK TO NON TEST MODE */}
         <CardFooter className="flex justify-center">
           <Link
-            href={stripeBillingUrl + "?prefilled_email=" + session?.user?.email}
+            href={`${stripeBillingUrl}?prefilled_email=${user?.email}`}
+            target="_blank"
           >
             <Button
               variant="default"
@@ -49,5 +58,4 @@ const profile = async () => {
       </Card>
     </div>
   );
-};
-export default profile;
+}

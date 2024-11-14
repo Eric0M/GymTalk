@@ -15,7 +15,7 @@ export async function handleCheckout(priceID: string) {
   );
 
   if (user) {
-    window.open(url, "_blank");
+    window.open("https://buy.stripe.com/test_14kg2b4ykbCAbT2aEL", "_blank");
   } else {
     window.location.href = "/login";
   }

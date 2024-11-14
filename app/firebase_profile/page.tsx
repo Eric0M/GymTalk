@@ -4,6 +4,7 @@ import { getPremiumStatus } from "@/getUserPurchasedStatus";
 import { getAuth } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Profile from "../components/stripe_profile/stripe_profile";
 
 interface UserData {
   uid: string;
@@ -38,8 +39,7 @@ export default function AccountPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <h1>Welcome, {user?.displayName}</h1>
-      {/* {statusPanel} */}
+      <Profile />
     </div>
   );
 }

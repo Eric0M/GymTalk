@@ -7,9 +7,7 @@ const Intermediate_to_Advanced_Calisthenics_Info = () => {
     <ProductPage
       title="Intermediate to Advanced Calisthenics"
       imageUrl="/Planche.jpg"
-      ft1="H"
-      ft2="D"
-      ft3="F"
+      ft1=""
       description="freg"
       detail={beginnerCalisthenics}
       priceId="price_1QAYrfIxXY4kjgHfDvE4G6gf"
