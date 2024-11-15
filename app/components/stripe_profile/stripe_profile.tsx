@@ -19,7 +19,7 @@ export default function Component({
   userEmail?: string;
 }) {
   const stripeBillingUrl =
-    "https://billing.stripe.com/p/login/test_28o6pn5Am4rp9t64gg";
+    "https://billing.stripe.com/p/login/3cs17k47yfvveKk288";
 
   const app = initFirebase();
   const auth = getAuth(app);

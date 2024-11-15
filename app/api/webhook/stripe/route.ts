@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { connectToDB } from "@/app/api/utils/database";
 import User from "@/app/(models)/User";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST as string, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: "2024-06-20",
 });
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;

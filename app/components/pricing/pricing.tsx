@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 import { constants } from "@/constants";
 import { initFirebase } from "@/firebase";
 import { getAuth } from "firebase/auth";
-import { handleCheckout } from "@/stripeSubscriptions";
+import { handleCheckout } from "@/app/components/pricing/stripeSubscriptions";
 import Link from "next/link";
 
 export default function PricingComponent() {
@@ -123,7 +123,7 @@ export default function PricingComponent() {
                     ? () => {
                         window.open("https://discord.gg/KEkWKKaVw8", "_blank");
                       }
-                    : () => handleCheckout("price_1Q7IPLIxXY4kjgHfJwT6tf2g")
+                    : () => handleCheckout("price_1Q2ttKIxXY4kjgHf9tbEAsrC")
                 }
                 className={`mt-8 w-full ${
                   tier.popular
