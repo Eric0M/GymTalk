@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
-        src="/planche_blue.jpg"
+        src="/Planche.jpg"
         alt="Gym background"
         fill
         className="absolute inset-0 z-0"
