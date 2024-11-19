@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
-        src="/Planche.jpg"
+        src="/planche_blue.jpg"
         alt="Gym background"
         fill
         className="absolute inset-0 z-0"
@@ -19,10 +19,10 @@ export default function Hero() {
           <h1
             className="text-4xl md:text-6xl font-bold text-white inline-block"
             style={{
-              textShadow: `-1px -1px 0 #4f46e5,
-                 1px -1px 0 #4f46e5,
-                 -1px 1px 0 #4f46e5,
-                 1px 1px 0 #4f46e5`,
+              textShadow: `-1px -1px 0 #000000,
+                 1px -1px 0 #000000,
+                 -1px 1px 0 #000000,
+                 1px 1px 0 #000000`,
             }}
           >
             Welcome to GymTalk
