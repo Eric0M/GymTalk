@@ -7,6 +7,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
+import Stripe from "stripe";
 
 type CheckoutMode = "payment" | "subscription";
 type success_url = string;
@@ -19,6 +20,8 @@ export const getCheckoutUrl = async (
 ): Promise<string> => {
   const auth = getAuth(app);
   const userId = auth.currentUser?.uid;
+  const email = auth.currentUser?.email;
+  const displayName = auth.currentUser?.displayName;
 
   if (!userId) {
     window.location.href = "/login";
@@ -32,6 +35,14 @@ export const getCheckoutUrl = async (
     userId,
     "checkout_sessions"
   );
+  // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+  //   apiVersion: "2024-06-20",
+  // });
+
+  // const customer = await stripe.customers.create({
+  //   name: displayName ?? "",
+  //   description: "Customer for " + email,
+  // });
 
   const docRef = await addDoc(checkoutSessionRef, {
     price: priceId,

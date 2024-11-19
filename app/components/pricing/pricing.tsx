@@ -123,7 +123,7 @@ export default function PricingComponent() {
                     ? () => {
                         window.open("https://discord.gg/KEkWKKaVw8", "_blank");
                       }
-                    : () => handleCheckout("price_1Q2ttKIxXY4kjgHf9tbEAsrC")
+                    : () => handleCheckout("price_1QLQjDIxXY4kjgHfxqIl8nEZ")
                 }
                 className={`mt-8 w-full ${
                   tier.popular
